@@ -57,5 +57,12 @@ dependencies {
     implementation libs.archLifecycleCommonJava8
     annotationProcessor libs.archLifecycleCompiler
 
+    // Firebase
+    implementation libs.firebaseAuth
+
+    // RxJava
+    implementation libs.rxAndroid
+    implementation libs.rxJava
+
     implementation project(path: ':base')
 }

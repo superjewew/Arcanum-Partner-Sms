@@ -3,6 +3,7 @@ package com.mahavira.partnersms.di;
 import android.app.Application;
 import android.content.Context;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.mahavira.partnersms.login.LoginRouter;
 import com.mahavira.partnersms.router.LoginRouterImpl;
 
@@ -23,6 +24,12 @@ class AppModule {
     @Singleton
     Context provideContext(Application application) {
         return application;
+    }
+
+    @Provides
+    @Singleton
+    FirebaseAuth provideFirebaseAuth() {
+        return FirebaseAuth.getInstance();
     }
 
     @Provides
