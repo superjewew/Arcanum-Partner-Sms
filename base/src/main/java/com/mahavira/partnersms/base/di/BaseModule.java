@@ -1,10 +1,10 @@
-package di;
+package com.mahavira.partnersms.base.di;
 
 import android.arch.lifecycle.ViewModelProvider;
 
 import javax.inject.Singleton;
 
-import core.ViewModelFactory;
+import com.mahavira.partnersms.base.core.ViewModelFactory;
 import dagger.Binds;
 import dagger.Module;
 

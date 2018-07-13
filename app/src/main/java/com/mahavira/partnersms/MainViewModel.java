@@ -2,7 +2,7 @@ package com.mahavira.partnersms;
 
 import javax.inject.Inject;
 
-import presentation.BaseViewModel;
+import com.mahavira.partnersms.base.presentation.BaseViewModel;
 
 /**
  * Created by norman on 13/07/18.

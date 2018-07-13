@@ -22,6 +22,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
@@ -34,6 +39,7 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.supportTestRunner
     androidTestImplementation libs.espressoCore
+    implementation "com.google.android.gms:play-services-tasks:15.0.1"
 
     // Dagger
     implementation libs.dagger
@@ -51,4 +57,8 @@ dependencies {
     implementation libs.archLifecycleExtensions
     implementation libs.archLifecycleCommonJava8
     annotationProcessor libs.archLifecycleCompiler
+
+    // RxJava
+    implementation libs.rxAndroid
+    implementation libs.rxJava
 }
