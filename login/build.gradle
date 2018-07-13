@@ -22,6 +22,10 @@ android {
         }
     }
 
+    dataBinding {
+        enabled true
+    }
+
 }
 
 dependencies {
@@ -31,6 +35,7 @@ dependencies {
 
     implementation libs.supportAppCompat
     implementation libs.supportV4
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation libs.junit
     androidTestImplementation libs.supportTestRunner
     androidTestImplementation libs.espressoCore
@@ -51,4 +56,6 @@ dependencies {
     implementation libs.archLifecycleExtensions
     implementation libs.archLifecycleCommonJava8
     annotationProcessor libs.archLifecycleCompiler
+
+    implementation project(path: ':base')
 }

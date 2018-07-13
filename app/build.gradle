@@ -49,5 +49,7 @@ dependencies {
     implementation libs.archLifecycleExtensions
     implementation libs.archLifecycleCommonJava8
     annotationProcessor libs.archLifecycleCompiler
-    compile project(path: ':base')
+
+    implementation project(path: ':base')
+    implementation project(path: ':login')
 }

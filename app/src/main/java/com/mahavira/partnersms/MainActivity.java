@@ -3,10 +3,16 @@ package com.mahavira.partnersms;
 import android.os.Bundle;
 
 import com.mahavira.partnersms.databinding.ActivityMainBinding;
+import com.mahavira.partnersms.login.LoginRouter;
+
+import javax.inject.Inject;
 
 import presentation.BaseActivity;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
+
+    @Inject
+    LoginRouter mLoginRouter;
 
     @Override
     public int getViewModelBindingVariable() {
@@ -21,6 +27,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        mLoginRouter.goToLogin(this);
     }
 }
