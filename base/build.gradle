@@ -51,4 +51,8 @@ dependencies {
     implementation libs.archLifecycleExtensions
     implementation libs.archLifecycleCommonJava8
     annotationProcessor libs.archLifecycleCompiler
+
+    // RxJava
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
 }
