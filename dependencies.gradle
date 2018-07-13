@@ -13,7 +13,7 @@ ext {
     espressoCoreVersion = '3.0.1'
     junitVersion ='4.12'
     constraintLayoutVersion = '1.1.2'
-
+    firebaseVersion = '16.0.0'
 
     libraries = [
             supportV4             : "com.android.support:support-v4:$supportLibraryVersion",
@@ -39,6 +39,7 @@ ext {
             archLifecycleExtensions   : "android.arch.lifecycle:extensions:$archVersion",
             archLifecycleCommonJava8  : "android.arch.lifecycle:common-java8:$archVersion",
             archLifecycleCompiler     : "android.arch.lifecycle:compiler:$archVersion",
-            archCoreTesting       : "android.arch.core:core-testing:$archVersion"
+            archCoreTesting       : "android.arch.core:core-testing:$archVersion",
+            firebaseCore          : "com.google.firebase:firebase-core:$firebaseVersion"
     ]
 }

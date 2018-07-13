@@ -50,6 +50,11 @@ dependencies {
     implementation libs.archLifecycleCommonJava8
     annotationProcessor libs.archLifecycleCompiler
 
+    // Firebase
+    implementation libs.firebaseCore
+
     implementation project(path: ':base')
     implementation project(path: ':login')
 }
+
+apply plugin: 'com.google.gms.google-services'
