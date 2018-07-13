@@ -4,6 +4,7 @@ import android.app.Application;
 
 
 import com.mahavira.partnersms.BaseApplication;
+import com.mahavira.partnersms.dashboard.di.DashboardModule;
 import com.mahavira.partnersms.login.di.LoginModule;
 
 import javax.inject.Singleton;
@@ -24,7 +25,8 @@ import com.mahavira.partnersms.base.di.BaseModule;
         AppModule.class,
         ActivityBuilderModule.class,
         BaseModule.class,
-        LoginModule.class
+        LoginModule.class,
+        DashboardModule.class
 })
 public interface AppComponent {
 
