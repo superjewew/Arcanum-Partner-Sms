@@ -1,6 +1,7 @@
 package com.mahavira.partnersms.login.presentation;
 
 import android.arch.lifecycle.MutableLiveData;
+import android.databinding.ObservableField;
 
 import javax.inject.Inject;
 
@@ -24,7 +25,7 @@ public class LoginViewModel extends BaseViewModel {
 
     private final MutableLiveData<Resource<AuthResult>> mResponse = new MutableLiveData<>();
 
-    LoginUseCase mLoginUseCase;
+    private LoginUseCase mLoginUseCase;
 
     @Inject
     LoginViewModel(LoginUseCase loginUseCase) {
@@ -40,8 +41,8 @@ public class LoginViewModel extends BaseViewModel {
         return mResponse;
     }
 
-    void attemptLogin(String email, String password) {
-        AuthParam loginParam = new AuthParam(email, password);
+    public void attemptLogin(AuthParam param) {
+        AuthParam loginParam = new AuthParam(param.getEmail(), param.getPassword());
         mDisposable.add(mLoginUseCase.execute(loginParam)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

@@ -3,16 +3,18 @@ package com.mahavira.partnersms.login.presentation;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.mahavira.partnersms.login.BR;
 import com.mahavira.partnersms.login.R;
 import com.mahavira.partnersms.login.databinding.ActivityLoginBinding;
 
 import com.mahavira.partnersms.base.presentation.BaseActivity;
+import com.mahavira.partnersms.login.domain.entity.AuthParam;
 
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> {
 
     @Override
     public int getViewModelBindingVariable() {
-        return NO_VIEW_MODEL_BINDING_VARIABLE;
+        return BR.viewModel;
     }
 
     @Override
@@ -31,12 +33,12 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
                         Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show();
                         break;
                     case ERROR:
-                        Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Login Failed, " + authResultResource.message, Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
         });
 
-        getViewModel().attemptLogin("admin@arcanum.com", "arcanum1234");
+        getDataBinding().setParam(new AuthParam("", ""));
     }
 }
