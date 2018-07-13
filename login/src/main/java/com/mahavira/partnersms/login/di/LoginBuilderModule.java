@@ -17,7 +17,7 @@ import di.ViewModelKey;
  */
 
 @Module
-abstract class LoginBuilderModule {
+public abstract class LoginBuilderModule {
 
     @ContributesAndroidInjector
     abstract LoginActivity bindLoginActivity();
