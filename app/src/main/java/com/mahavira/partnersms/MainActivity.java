@@ -1,9 +1,22 @@
 package com.mahavira.partnersms;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.mahavira.partnersms.databinding.ActivityMainBinding;
+
+import presentation.BaseActivity;
+
+public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
+
+    @Override
+    public int getViewModelBindingVariable() {
+        return NO_VIEW_MODEL_BINDING_VARIABLE;
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_main;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
