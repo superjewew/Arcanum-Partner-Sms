@@ -11,7 +11,7 @@ import javax.inject.Singleton;
 import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.support.AndroidSupportInjectionModule;
-import di.BaseModule;
+import com.mahavira.partnersms.base.di.BaseModule;
 
 /**
  * Created by bobbi on 13/03/18.

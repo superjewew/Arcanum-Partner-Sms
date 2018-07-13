@@ -1,4 +1,4 @@
-package di;
+package com.mahavira.partnersms.base.di;
 
 import android.arch.lifecycle.ViewModel;
 

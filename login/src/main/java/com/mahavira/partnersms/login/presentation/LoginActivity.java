@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.mahavira.partnersms.login.R;
 import com.mahavira.partnersms.login.databinding.ActivityLoginBinding;
 
-import presentation.BaseActivity;
+import com.mahavira.partnersms.base.presentation.BaseActivity;
 
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> {
 

@@ -1,11 +1,11 @@
-package core;
+package com.mahavira.partnersms.base.core;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import static core.Status.ERROR;
-import static core.Status.LOADING;
-import static core.Status.SUCCESS;
+import static com.mahavira.partnersms.base.core.Status.ERROR;
+import static com.mahavira.partnersms.base.core.Status.LOADING;
+import static com.mahavira.partnersms.base.core.Status.SUCCESS;
 
 /**
  * The wrapper class of data, contains current state of the data including {@link #status},

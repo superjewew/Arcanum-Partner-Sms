@@ -7,7 +7,7 @@ import com.mahavira.partnersms.login.LoginRouter;
 
 import javax.inject.Inject;
 
-import presentation.BaseActivity;
+import com.mahavira.partnersms.base.presentation.BaseActivity;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
 

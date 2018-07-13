@@ -10,7 +10,7 @@ import dagger.Binds;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import dagger.multibindings.IntoMap;
-import di.ViewModelKey;
+import com.mahavira.partnersms.base.di.ViewModelKey;
 
 /**
  * Created by norman on 09/07/18.

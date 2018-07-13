@@ -1,4 +1,4 @@
-package presentation;
+package com.mahavira.partnersms.base.presentation;
 
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;

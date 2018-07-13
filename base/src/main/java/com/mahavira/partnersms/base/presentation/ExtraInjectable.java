@@ -1,4 +1,4 @@
-package presentation;
+package com.mahavira.partnersms.base.presentation;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
