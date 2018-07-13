@@ -1,6 +1,7 @@
 package com.mahavira.partnersms.login.presentation;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.mahavira.partnersms.login.R;
 import com.mahavira.partnersms.login.databinding.ActivityLoginBinding;
@@ -22,5 +23,20 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getViewModel().getLoginResponse().observe(this, authResultResource -> {
+            if (authResultResource != null) {
+                switch (authResultResource.status) {
+                    case SUCCESS:
+                        Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show();
+                        break;
+                    case ERROR:
+                        Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
+
+        getViewModel().attemptLogin("admin@arcanum.com", "arcanum1234");
     }
 }

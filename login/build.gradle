@@ -26,6 +26,10 @@ android {
         enabled true
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -59,6 +63,7 @@ dependencies {
 
     // Firebase
     implementation libs.firebaseAuth
+    implementation 'com.github.frangsierra:rx2firebase:1.4.0'
 
     // RxJava
     implementation libs.rxAndroid

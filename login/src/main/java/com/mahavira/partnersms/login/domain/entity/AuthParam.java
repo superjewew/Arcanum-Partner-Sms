@@ -8,6 +8,11 @@ public class AuthParam {
     private String mEmail;
     private String mPassword;
 
+    public AuthParam(String email, String password) {
+        setEmail(email);
+        setPassword(password);
+    }
+
     public String getEmail() {
         return mEmail;
     }
