@@ -2,7 +2,7 @@ package com.mahavira.partnersms.dashboard.presentation;
 
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.mahavira.partnersms.base.presentation.BaseActivity;
 import com.mahavira.partnersms.dashboard.R;
@@ -29,5 +29,14 @@ public class DashboardActivity extends BaseActivity<ActivityDashboardBinding, Da
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.dashboard_menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int i = item.getItemId();
+        if (i == R.id.action_add_partner) {
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
