@@ -62,6 +62,7 @@ dependencies {
     implementation project(path: ':base')
     implementation project(path: ':login')
     implementation project(path: ':dashboard')
+    implementation project(path: ':storemanagement')
 }
 
 apply plugin: 'com.google.gms.google-services'
