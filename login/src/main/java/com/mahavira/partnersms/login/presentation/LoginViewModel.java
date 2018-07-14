@@ -17,9 +17,12 @@ import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by norman on 13/07/18.
+ *
  */
 
 public class LoginViewModel extends BaseViewModel {
+
+    public final ObservableField<Boolean> mLoginEnabled = new ObservableField<>(true);
 
     private final CompositeDisposable mDisposable = new CompositeDisposable();
 
@@ -46,10 +49,22 @@ public class LoginViewModel extends BaseViewModel {
         mDisposable.add(mLoginUseCase.execute(loginParam)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe(__ -> mResponse.setValue(Resource.loading(null)))
-                .subscribe(result -> mResponse.setValue(Resource.success(result)),
-                        throwable -> mResponse.setValue(Resource.error(null, throwable.getLocalizedMessage(), null))));
+                .doOnSubscribe(__ -> onSubscribe())
+                .subscribe(this::onSuccess, this::onFailed));
     }
 
+    private void onSubscribe() {
+        mLoginEnabled.set(false);
+        mResponse.setValue(Resource.loading(null));
+    }
 
+    private void onSuccess(AuthResult result) {
+        mLoginEnabled.set(true);
+        mResponse.setValue(Resource.success(result));
+    }
+
+    private void onFailed(Throwable throwable) {
+        mLoginEnabled.set(true);
+        mResponse.setValue(Resource.error(null, throwable.getLocalizedMessage(), null));
+    }
 }

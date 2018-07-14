@@ -43,6 +43,7 @@
             android:layout_height="wrap_content"
             android:text="@string/login_btn_txt"
             android:onClick="@{() -> viewModel.attemptLogin(param)}"
+            android:enabled="@{viewModel.mLoginEnabled}"
             app:layout_constraintTop_toBottomOf="@id/pass_et"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
