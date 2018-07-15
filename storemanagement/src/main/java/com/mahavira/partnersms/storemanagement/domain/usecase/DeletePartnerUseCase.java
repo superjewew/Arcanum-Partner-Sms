@@ -18,7 +18,7 @@ public class DeletePartnerUseCase implements CompletableUseCase<Partner> {
     private PartnerRepository mRepository;
 
     @Inject
-    DeletePartnerUseCase(PartnerRepository repository) {
+    public DeletePartnerUseCase(PartnerRepository repository) {
         mRepository = repository;
     }
 

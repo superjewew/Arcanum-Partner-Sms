@@ -20,7 +20,7 @@ public class GetPartnersUseCase implements BaseUseCase<List<Partner>> {
     private PartnerRepository mRepository;
 
     @Inject
-    GetPartnersUseCase(PartnerRepository repository) {
+    public GetPartnersUseCase(PartnerRepository repository) {
         mRepository = repository;
     }
 

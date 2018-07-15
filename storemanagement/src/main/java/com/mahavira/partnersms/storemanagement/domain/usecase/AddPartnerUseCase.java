@@ -18,13 +18,13 @@ public class AddPartnerUseCase implements CompletableUseCase<Partner> {
     private PartnerRepository mRepository;
 
     @Inject
-    AddPartnerUseCase(PartnerRepository repository) {
+    public AddPartnerUseCase(PartnerRepository repository) {
         mRepository = repository;
     }
 
 
     @Override
-    public Completable execute(Partner param) throws Exception {
+    public Completable execute(Partner param) {
         return mRepository.addPartner(param);
     }
 }
