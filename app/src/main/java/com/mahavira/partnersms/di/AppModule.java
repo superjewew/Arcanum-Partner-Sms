@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.mahavira.partnersms.dashboard.presentation.DashboardRouter;
 import com.mahavira.partnersms.login.LoginRouter;
 import com.mahavira.partnersms.router.DashboardRouterImpl;
@@ -49,5 +50,11 @@ class AppModule {
     @Provides
     StoreManagementRouter provideStoreManagementRouter() {
         return new StoreManagementRouterImpl();
+    }
+
+    @Singleton
+    @Provides
+    FirebaseFirestore provideFirebaseFirestore() {
+        return FirebaseFirestore.getInstance();
     }
 }

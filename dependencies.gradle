@@ -15,6 +15,7 @@ ext {
     constraintLayoutVersion = '1.1.2'
     firebaseVersion = '16.0.0'
     firebaseAuthVersion = "16.0.2"
+    firebaseFirestoreVersion = "17.0.2"
     rxAndroidVersion = '2.0.1'
     rxJavaVersion = '2.1.9'
 
@@ -45,6 +46,7 @@ ext {
             archCoreTesting       : "android.arch.core:core-testing:$archVersion",
             firebaseCore          : "com.google.firebase:firebase-core:$firebaseVersion",
             firebaseAuth          : "com.google.firebase:firebase-auth:$firebaseAuthVersion",
+            firebaseFirestore     : "com.google.firebase:firebase-firestore:$firebaseFirestoreVersion",
             rxAndroid             : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
             rxJava                : "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     ]
