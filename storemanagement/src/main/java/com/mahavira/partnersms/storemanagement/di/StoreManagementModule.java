@@ -1,5 +1,6 @@
 package com.mahavira.partnersms.storemanagement.di;
 
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.mahavira.partnersms.storemanagement.data.PartnerRepositoryImpl;
 import com.mahavira.partnersms.storemanagement.domain.repo.PartnerRepository;
 import com.mahavira.partnersms.storemanagement.domain.usecase.AddPartnerUseCase;
@@ -21,8 +22,8 @@ public class StoreManagementModule {
 
     @Provides
     @Singleton
-    PartnerRepository providePartnerRepository() {
-        return new PartnerRepositoryImpl();
+    PartnerRepository providePartnerRepository(FirebaseFirestore firebaseFirestore) {
+        return new PartnerRepositoryImpl(firebaseFirestore);
     }
 
     @Provides
