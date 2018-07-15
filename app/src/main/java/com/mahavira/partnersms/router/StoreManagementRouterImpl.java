@@ -3,7 +3,7 @@ package com.mahavira.partnersms.router;
 import android.content.Context;
 import android.content.Intent;
 
-import com.mahavira.partnersms.storemanagement.presentation.feature.StoreManagementRouter;
+import com.mahavira.partnersms.storemanagement.presentation.StoreManagementRouter;
 import com.mahavira.partnersms.storemanagement.presentation.feature.addpartner.AddPartnerActivity;
 
 /**

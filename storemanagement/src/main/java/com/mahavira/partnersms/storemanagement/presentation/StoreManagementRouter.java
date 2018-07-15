@@ -1,4 +1,4 @@
-package com.mahavira.partnersms.storemanagement.presentation.feature;
+package com.mahavira.partnersms.storemanagement.presentation;
 
 import android.content.Context;
 

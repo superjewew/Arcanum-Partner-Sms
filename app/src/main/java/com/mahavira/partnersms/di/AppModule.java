@@ -9,7 +9,7 @@ import com.mahavira.partnersms.login.LoginRouter;
 import com.mahavira.partnersms.router.DashboardRouterImpl;
 import com.mahavira.partnersms.router.LoginRouterImpl;
 import com.mahavira.partnersms.router.StoreManagementRouterImpl;
-import com.mahavira.partnersms.storemanagement.presentation.feature.StoreManagementRouter;
+import com.mahavira.partnersms.storemanagement.presentation.StoreManagementRouter;
 
 import javax.inject.Singleton;
 

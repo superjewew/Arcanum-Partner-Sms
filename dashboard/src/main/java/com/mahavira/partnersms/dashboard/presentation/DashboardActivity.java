@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import com.mahavira.partnersms.base.presentation.BaseActivity;
 import com.mahavira.partnersms.dashboard.R;
 import com.mahavira.partnersms.dashboard.databinding.ActivityDashboardBinding;
-import com.mahavira.partnersms.storemanagement.presentation.feature.StoreManagementRouter;
+import com.mahavira.partnersms.storemanagement.presentation.StoreManagementRouter;
 
 import javax.inject.Inject;
 
