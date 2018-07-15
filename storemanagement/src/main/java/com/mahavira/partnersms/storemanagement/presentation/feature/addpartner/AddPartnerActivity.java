@@ -61,6 +61,8 @@ public class AddPartnerActivity extends BaseActivity<ActivityAddPartnerBinding, 
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_save) {
             Partner partner = new Partner();
+            partner.setName("Test Partner");
+            partner.setUsername("testpartner");
             getViewModel().attemptAddPartner(partner);
         }
         return super.onOptionsItemSelected(item);

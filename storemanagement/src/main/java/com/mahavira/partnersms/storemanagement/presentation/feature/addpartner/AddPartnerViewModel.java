@@ -1,6 +1,7 @@
 package com.mahavira.partnersms.storemanagement.presentation.feature.addpartner;
 
 import android.arch.lifecycle.MutableLiveData;
+import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
 
 import com.mahavira.partnersms.base.core.Resource;
@@ -21,7 +22,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class AddPartnerViewModel extends BaseViewModel {
 
-    public final ObservableField<Boolean> mShowLoading = new ObservableField<>(false);
+    public final ObservableBoolean mShowLoading = new ObservableBoolean();
 
     private final MutableLiveData<Resource<Boolean>> mAddPartnerResult = new MutableLiveData<>();
 
