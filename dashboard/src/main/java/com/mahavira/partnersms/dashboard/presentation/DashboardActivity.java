@@ -7,8 +7,14 @@ import android.view.MenuItem;
 import com.mahavira.partnersms.base.presentation.BaseActivity;
 import com.mahavira.partnersms.dashboard.R;
 import com.mahavira.partnersms.dashboard.databinding.ActivityDashboardBinding;
+import com.mahavira.partnersms.storemanagement.presentation.feature.StoreManagementRouter;
+
+import javax.inject.Inject;
 
 public class DashboardActivity extends BaseActivity<ActivityDashboardBinding, DashboardViewModel> {
+
+    @Inject
+    StoreManagementRouter mRouter;
 
     @Override
     public int getViewModelBindingVariable() {
@@ -35,7 +41,7 @@ public class DashboardActivity extends BaseActivity<ActivityDashboardBinding, Da
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
         if (i == R.id.action_add_partner) {
-
+            mRouter.goToAddPartner(this);
         }
         return super.onOptionsItemSelected(item);
     }

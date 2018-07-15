@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">storemanagement</string>
+    <string name="action_save_title">Save</string>
 </resources>

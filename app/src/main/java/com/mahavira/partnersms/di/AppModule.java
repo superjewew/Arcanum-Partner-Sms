@@ -8,6 +8,8 @@ import com.mahavira.partnersms.dashboard.presentation.DashboardRouter;
 import com.mahavira.partnersms.login.LoginRouter;
 import com.mahavira.partnersms.router.DashboardRouterImpl;
 import com.mahavira.partnersms.router.LoginRouterImpl;
+import com.mahavira.partnersms.router.StoreManagementRouterImpl;
+import com.mahavira.partnersms.storemanagement.presentation.feature.StoreManagementRouter;
 
 import javax.inject.Singleton;
 
@@ -42,5 +44,10 @@ class AppModule {
     @Provides
     DashboardRouter provideDashboardRouter() {
         return new DashboardRouterImpl();
+    }
+
+    @Provides
+    StoreManagementRouter provideStoreManagementRouter() {
+        return new StoreManagementRouterImpl();
     }
 }
