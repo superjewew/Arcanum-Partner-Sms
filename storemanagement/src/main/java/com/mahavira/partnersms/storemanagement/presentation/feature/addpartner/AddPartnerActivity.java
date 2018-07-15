@@ -5,6 +5,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.android.databinding.library.baseAdapters.BR;
 import com.mahavira.partnersms.base.presentation.BaseActivity;
 import com.mahavira.partnersms.storemanagement.R;
 import com.mahavira.partnersms.storemanagement.databinding.ActivityAddPartnerBinding;
@@ -14,7 +15,7 @@ public class AddPartnerActivity extends BaseActivity<ActivityAddPartnerBinding, 
 
     @Override
     public int getViewModelBindingVariable() {
-        return NO_VIEW_MODEL_BINDING_VARIABLE;
+        return BR.viewModel;
     }
 
     @Override
