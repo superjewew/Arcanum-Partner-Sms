@@ -63,5 +63,5 @@ dependencies {
     // RxJava
     implementation libs.rxAndroid
     implementation libs.rxJava
-    compile project(path: ':base')
+    implementation project(path: ':base')
 }
