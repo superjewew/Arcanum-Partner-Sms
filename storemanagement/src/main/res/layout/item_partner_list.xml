@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="clickListener"
+            type="com.mahavira.partnersms.storemanagement.presentation.feature.partnerlist.PartnerListAdapter.ItemClickListener"/>
+        <variable
+            name="partner"
+            type="com.mahavira.partnersms.storemanagement.domain.entitiy.Partner"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:onClick="@{() -> clickListener.onItemClicked(partner)}">
+
+        <TextView
+            android:id="@+id/store_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{partner.name}"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            tools:text="Store name" />
+
+        <TextView
+            android:id="@+id/username_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{partner.username}"
+            app:layout_constraintTop_toBottomOf="@+id/guideline"
+            tools:text="username" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
