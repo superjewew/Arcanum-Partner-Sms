@@ -13,6 +13,7 @@ import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.support.AndroidSupportInjectionModule;
 import com.mahavira.partnersms.base.di.BaseModule;
+import com.mahavira.partnersms.storemanagement.di.StoreManagementModule;
 
 /**
  * Created by bobbi on 13/03/18.
@@ -26,7 +27,8 @@ import com.mahavira.partnersms.base.di.BaseModule;
         ActivityBuilderModule.class,
         BaseModule.class,
         LoginModule.class,
-        DashboardModule.class
+        DashboardModule.class,
+        StoreManagementModule.class
 })
 public interface AppComponent {
 

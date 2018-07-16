@@ -66,4 +66,5 @@ dependencies {
     implementation libs.rxJava
 
     implementation project(path: ':base')
+    implementation project(path: ':storemanagement')
 }
