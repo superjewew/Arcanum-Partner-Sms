@@ -39,7 +39,7 @@ dependencies {
 
     implementation libs.supportAppCompat
     implementation libs.supportV4
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation libs.supportConstraintLayout
     testImplementation libs.junit
     androidTestImplementation libs.supportTestRunner
     androidTestImplementation libs.espressoCore

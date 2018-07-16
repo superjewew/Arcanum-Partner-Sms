@@ -3,7 +3,9 @@
     package="com.mahavira.partnersms.storemanagement">
 
     <application>
-        <activity android:name=".presentation.feature.addpartner.AddPartnerActivity"/>
+        <activity android:name=".presentation.feature.addpartner.AddPartnerActivity" />
+        <activity android:name=".presentation.feature.partnerlist.PartnerListActivity"
+            android:label="Partner List"/>
     </application>
 
 </manifest>
