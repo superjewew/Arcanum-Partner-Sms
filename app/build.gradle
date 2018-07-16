@@ -61,6 +61,10 @@ dependencies {
     implementation libs.firebaseAuth
     implementation libs.firebaseFirestore
 
+    // Parceler
+    implementation libs.parcelerApi
+    annotationProcessor libs.parceler
+
     implementation project(path: ':base')
     implementation project(path: ':login')
     implementation project(path: ':dashboard')

@@ -70,4 +70,8 @@ dependencies {
     implementation libs.rxAndroid
     implementation libs.rxJava
     implementation project(path: ':base')
+
+    // Parceler
+    implementation libs.parcelerApi
+    annotationProcessor libs.parceler
 }

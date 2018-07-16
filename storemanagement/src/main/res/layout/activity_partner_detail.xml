@@ -1,15 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="partner"
+            type="com.mahavira.partnersms.storemanagement.domain.entitiy.Partner"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="16dp"
         tools:context="com.mahavira.partnersms.storemanagement.presentation.feature.partnerdetail.PartnerDetailActivity">
+
+        <TextView
+            android:id="@+id/store_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{partner.name}"
+            tools:text="Name"/>
+
+        <TextView
+            android:id="@+id/username_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{partner.username}"
+            app:layout_constraintTop_toBottomOf="@+id/store_name_tv"
+            tools:text="username"/>
+
+        <TextView
+            android:id="@+id/email_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{partner.email}"
+            app:layout_constraintTop_toBottomOf="@+id/username_tv"
+            tools:text="test@test.com"/>
 
     </android.support.constraint.ConstraintLayout>
 </layout>
