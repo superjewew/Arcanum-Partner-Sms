@@ -49,6 +49,8 @@ public class PartnerListActivity extends BaseActivity<ActivityPartnerListBinding
         getViewModel().getErrorMessage().observe(this,
                 errorMessage -> Toast.makeText(this, "Failed fetch partner list, "
                         + errorMessage, Toast.LENGTH_SHORT).show());
+
+        getViewModel().attemptGetPartners();
     }
 
     private void setupAdapter() {
