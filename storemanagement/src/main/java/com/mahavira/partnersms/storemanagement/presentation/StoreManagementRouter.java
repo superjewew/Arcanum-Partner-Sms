@@ -9,4 +9,5 @@ import android.content.Context;
 
 public interface StoreManagementRouter {
     void goToAddPartner(Context context);
+    void goToPartnerList(Context context);
 }

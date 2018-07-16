@@ -53,6 +53,11 @@ public class PartnerListAdapter extends RecyclerView.Adapter<PartnerListAdapter.
         return mPartnerList.size();
     }
 
+    void replaceData(List<Partner> partners) {
+        mPartnerList = partners;
+        notifyDataSetChanged();
+    }
+
     class PartnerListViewHolder extends RecyclerView.ViewHolder {
 
         ItemPartnerListBinding mBinding;

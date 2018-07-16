@@ -29,6 +29,8 @@ public class DashboardActivity extends BaseActivity<ActivityDashboardBinding, Da
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getDataBinding().partnerListBtn.setOnClickListener(view -> mRouter.goToPartnerList(this));
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.mahavira.partnersms.storemanagement.presentation.feature.partnerlist
 import android.arch.lifecycle.MutableLiveData;
 import android.databinding.ObservableBoolean;
 
+import com.mahavira.partnersms.base.core.Resource;
 import com.mahavira.partnersms.base.presentation.BaseViewModel;
 import com.mahavira.partnersms.storemanagement.domain.entitiy.Partner;
 import com.mahavira.partnersms.storemanagement.domain.usecase.GetPartnersUseCase;
@@ -24,7 +25,7 @@ public class PartnerListViewModel extends BaseViewModel {
 
     public final ObservableBoolean mShowLoading = new ObservableBoolean();
 
-    private final MutableLiveData<List<Partner>> mPartnersData = new MutableLiveData<>();
+    private final MutableLiveData<Resource<List<Partner>>> mPartnersData = new MutableLiveData<>();
 
     private final MutableLiveData<Partner> mPartnerClicked = new MutableLiveData<>();
 
@@ -48,7 +49,7 @@ public class PartnerListViewModel extends BaseViewModel {
         return mPartnerClicked;
     }
 
-    MutableLiveData<List<Partner>> getPartnersData() {
+    MutableLiveData<Resource<List<Partner>>> getPartnersData() {
         return mPartnersData;
     }
 
@@ -75,7 +76,7 @@ public class PartnerListViewModel extends BaseViewModel {
 
     private void onSuccess(List<Partner> partners) {
         mShowLoading.set(false);
-        mPartnersData.setValue(partners);
+        mPartnersData.setValue(Resource.success(partners));
     }
 
 }
