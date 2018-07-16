@@ -4,8 +4,10 @@
 
     <application>
         <activity android:name=".presentation.feature.addpartner.AddPartnerActivity" />
-        <activity android:name=".presentation.feature.partnerlist.PartnerListActivity"
-            android:label="Partner List"/>
+        <activity
+            android:name=".presentation.feature.partnerlist.PartnerListActivity"
+            android:label="Partner List" />
+        <activity android:name=".presentation.feature.partnerdetail.PartnerDetailActivity"></activity>
     </application>
 
 </manifest>

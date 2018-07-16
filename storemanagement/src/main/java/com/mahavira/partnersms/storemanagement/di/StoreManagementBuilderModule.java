@@ -5,6 +5,8 @@ import android.arch.lifecycle.ViewModel;
 import com.mahavira.partnersms.base.di.ViewModelKey;
 import com.mahavira.partnersms.storemanagement.presentation.feature.addpartner.AddPartnerActivity;
 import com.mahavira.partnersms.storemanagement.presentation.feature.addpartner.AddPartnerViewModel;
+import com.mahavira.partnersms.storemanagement.presentation.feature.partnerdetail.PartnerDetailActivity;
+import com.mahavira.partnersms.storemanagement.presentation.feature.partnerdetail.PartnerDetailViewModel;
 import com.mahavira.partnersms.storemanagement.presentation.feature.partnerlist.PartnerListActivity;
 import com.mahavira.partnersms.storemanagement.presentation.feature.partnerlist.PartnerListViewModel;
 
@@ -27,6 +29,9 @@ public abstract class StoreManagementBuilderModule {
     @ContributesAndroidInjector
     abstract PartnerListActivity bindPartnerListActivity();
 
+    @ContributesAndroidInjector
+    abstract PartnerDetailActivity bindPartnerDetailActivity();
+
     @Binds
     @IntoMap
     @ViewModelKey(AddPartnerViewModel.class)
@@ -36,5 +41,10 @@ public abstract class StoreManagementBuilderModule {
     @IntoMap
     @ViewModelKey(PartnerListViewModel.class)
     abstract ViewModel bindPartnerListViewModel(PartnerListViewModel partnerListViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PartnerDetailViewModel.class)
+    abstract ViewModel bindPartnerDetailViewModel(PartnerDetailViewModel partnerDetailViewModel);
 
 }
