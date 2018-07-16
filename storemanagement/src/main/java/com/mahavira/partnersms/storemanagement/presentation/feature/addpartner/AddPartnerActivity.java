@@ -23,12 +23,16 @@ public class AddPartnerActivity extends BaseActivity<ActivityAddPartnerBinding, 
         return R.layout.activity_add_partner;
     }
 
+    private Partner mPartner = new Partner();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         observeAddPartnerResult();
         observeErrorMessage();
+
+        getDataBinding().setPartner(mPartner);
     }
 
     private void observeAddPartnerResult() {
@@ -61,10 +65,7 @@ public class AddPartnerActivity extends BaseActivity<ActivityAddPartnerBinding, 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_save) {
-            Partner partner = new Partner();
-            partner.setName("Test Partner");
-            partner.setUsername("testpartner");
-            getViewModel().attemptAddPartner(partner);
+            getViewModel().attemptAddPartner(mPartner);
         }
         return super.onOptionsItemSelected(item);
     }
