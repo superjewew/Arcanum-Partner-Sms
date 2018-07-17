@@ -42,7 +42,7 @@ public class PartnerRepositoryImpl implements PartnerRepository {
 
     @Override
     public Completable deletePartner(Partner partner) {
-        return null;
+        return deleteValue(mInstance.collection("partner").document(partner.getUsername()));
     }
 
     @NonNull
@@ -58,6 +58,14 @@ public class PartnerRepositoryImpl implements PartnerRepository {
         return Maybe.create(
                 e -> ref.get()
                         .addOnCompleteListener(task -> e.onSuccess(task.getResult().toObjects(clazz)))
+                        .addOnFailureListener(e::onError));
+    }
+
+    @NonNull
+    private Completable deleteValue(@NonNull final DocumentReference ref) {
+        return Completable.create(
+                e -> ref.delete()
+                        .addOnSuccessListener(documentReference -> e.onComplete())
                         .addOnFailureListener(e::onError));
     }
 

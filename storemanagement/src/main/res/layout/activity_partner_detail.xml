@@ -7,6 +7,10 @@
         <variable
             name="partner"
             type="com.mahavira.partnersms.storemanagement.domain.entitiy.Partner"/>
+        <variable
+            name="viewModel"
+            type="com.mahavira.partnersms.storemanagement.presentation.feature.partnerdetail.PartnerDetailViewModel"/>
+        <import type="android.view.View"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -37,6 +41,16 @@
             android:text="@{partner.email}"
             app:layout_constraintTop_toBottomOf="@+id/username_tv"
             tools:text="test@test.com"/>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:visibility="@{viewModel.mShowLoading ? View.VISIBLE : View.INVISIBLE}"/>
 
     </android.support.constraint.ConstraintLayout>
 </layout>
