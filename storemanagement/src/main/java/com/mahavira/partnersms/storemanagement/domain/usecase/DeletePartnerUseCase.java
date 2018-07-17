@@ -23,7 +23,7 @@ public class DeletePartnerUseCase implements CompletableUseCase<Partner> {
     }
 
     @Override
-    public Completable execute(Partner param) throws Exception {
+    public Completable execute(Partner param) {
         return mRepository.deletePartner(param);
     }
 }

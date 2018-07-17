@@ -58,6 +58,11 @@ public class PartnerListActivity extends BaseActivity<ActivityPartnerListBinding
 
         getViewModel().getPartnerClicked().observe(this, partner -> mRouter.goToPartnerDetail(this, partner));
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         getViewModel().attemptGetPartners();
     }
 
