@@ -1,7 +1,9 @@
 package com.mahavira.partnersms.storemanagement.presentation.feature.partnerdetail;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -70,7 +72,18 @@ public class PartnerDetailActivity extends BaseActivity<ActivityPartnerDetailBin
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.action_delete) {
-            getViewModel().attemptDelete(mPartner);
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setTitle("Deleting " + mPartner.getName());
+            alertDialogBuilder.setMessage("Are you sure?");
+            alertDialogBuilder.setPositiveButton("OK", (dialog, which) -> getViewModel().attemptDelete(mPartner));
+            alertDialogBuilder.setNegativeButton("Cancel", (dialog, which) -> {
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            });
+
+            alertDialogBuilder.create().show();
+
         }
         return super.onOptionsItemSelected(item);
     }
