@@ -23,7 +23,7 @@ public class AddProductUseCase implements CompletableUseCase<Boardgame> {
     }
 
     @Override
-    public Completable execute(Boardgame param) throws Exception {
+    public Completable execute(Boardgame param) {
         return mRepository.addProduct(param);
     }
 }
