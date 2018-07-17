@@ -18,6 +18,7 @@ ext {
     firebaseFirestoreVersion = "17.0.2"
     rxAndroidVersion = '2.0.1'
     rxJavaVersion = '2.1.9'
+    parcelerVersion = '1.1.11'
 
     libraries = [
             supportV4             : "com.android.support:support-v4:$supportLibraryVersion",
@@ -48,6 +49,9 @@ ext {
             firebaseAuth          : "com.google.firebase:firebase-auth:$firebaseAuthVersion",
             firebaseFirestore     : "com.google.firebase:firebase-firestore:$firebaseFirestoreVersion",
             rxAndroid             : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
-            rxJava                : "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+            rxJava                : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            parcelerApi           : "org.parceler:parceler-api:$parcelerVersion",
+            parceler              : "org.parceler:parceler:$parcelerVersion"
+
     ]
 }

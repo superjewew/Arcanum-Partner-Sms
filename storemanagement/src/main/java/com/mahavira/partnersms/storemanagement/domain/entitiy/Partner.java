@@ -1,20 +1,23 @@
 package com.mahavira.partnersms.storemanagement.domain.entitiy;
 
+import org.parceler.Parcel;
+
 /**
  * Created by norman on 15/07/18.
  *
  */
 
+@Parcel
 public class Partner {
-    private String name;
-    private String username;
-    private String password;
-    private String email;
-    private String address;
-    private String phone;
-    private int visitorToday;
-    private int visitorThisMonth;
-    private String lastUpdated;
+    String name;
+    String username;
+    String password;
+    String email;
+    String address;
+    String phone;
+    int visitorToday;
+    int visitorThisMonth;
+    String lastUpdated;
 
     public String getName() {
         return name;

@@ -9,15 +9,21 @@ import com.mahavira.partnersms.storemanagement.BR;
 import com.mahavira.partnersms.storemanagement.R;
 import com.mahavira.partnersms.storemanagement.databinding.ActivityPartnerListBinding;
 import com.mahavira.partnersms.storemanagement.domain.entitiy.Partner;
+import com.mahavira.partnersms.storemanagement.presentation.StoreManagementRouter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 public class PartnerListActivity extends BaseActivity<ActivityPartnerListBinding, PartnerListViewModel> {
 
     private PartnerListAdapter mAdapter;
 
     private List<Partner> mPartnerList = new ArrayList<>();
+
+    @Inject
+    StoreManagementRouter mRouter;
 
     @Override
     public int getViewModelBindingVariable() {
@@ -49,6 +55,8 @@ public class PartnerListActivity extends BaseActivity<ActivityPartnerListBinding
         getViewModel().getErrorMessage().observe(this,
                 errorMessage -> Toast.makeText(this, "Failed fetch partner list, "
                         + errorMessage, Toast.LENGTH_SHORT).show());
+
+        getViewModel().getPartnerClicked().observe(this, partner -> mRouter.goToPartnerDetail(this, partner));
 
         getViewModel().attemptGetPartners();
     }
