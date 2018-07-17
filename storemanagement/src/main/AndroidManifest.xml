@@ -7,7 +7,9 @@
         <activity
             android:name=".presentation.feature.partnerlist.PartnerListActivity"
             android:label="Partner List" />
-        <activity android:name=".presentation.feature.partnerdetail.PartnerDetailActivity"></activity>
+        <activity
+            android:name=".presentation.feature.partnerdetail.PartnerDetailActivity"
+            android:label="Partner Detail"/>
     </application>
 
 </manifest>
