@@ -4,6 +4,7 @@ import android.app.Application;
 
 
 import com.mahavira.partnersms.BaseApplication;
+import com.mahavira.partnersms.dashboard.di.DashboardModule;
 import com.mahavira.partnersms.login.di.LoginModule;
 
 import javax.inject.Singleton;
@@ -12,6 +13,7 @@ import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.support.AndroidSupportInjectionModule;
 import com.mahavira.partnersms.base.di.BaseModule;
+import com.mahavira.partnersms.storemanagement.di.StoreManagementModule;
 
 /**
  * Created by bobbi on 13/03/18.
@@ -24,7 +26,9 @@ import com.mahavira.partnersms.base.di.BaseModule;
         AppModule.class,
         ActivityBuilderModule.class,
         BaseModule.class,
-        LoginModule.class
+        LoginModule.class,
+        DashboardModule.class,
+        StoreManagementModule.class
 })
 public interface AppComponent {
 

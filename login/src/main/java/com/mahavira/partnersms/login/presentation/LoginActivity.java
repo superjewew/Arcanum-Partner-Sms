@@ -1,8 +1,10 @@
 package com.mahavira.partnersms.login.presentation;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.mahavira.partnersms.dashboard.presentation.DashboardRouter;
 import com.mahavira.partnersms.login.BR;
 import com.mahavira.partnersms.login.R;
 import com.mahavira.partnersms.login.databinding.ActivityLoginBinding;
@@ -10,7 +12,12 @@ import com.mahavira.partnersms.login.databinding.ActivityLoginBinding;
 import com.mahavira.partnersms.base.presentation.BaseActivity;
 import com.mahavira.partnersms.login.domain.entity.AuthParam;
 
+import javax.inject.Inject;
+
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> {
+
+    @Inject
+    DashboardRouter mRouter;
 
     @Override
     public int getViewModelBindingVariable() {
@@ -31,6 +38,8 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
                 switch (authResultResource.status) {
                     case SUCCESS:
                         Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show();
+                        Log.d("LOGIN", "login success");
+                        mRouter.goToDashboard(this);
                         break;
                     case ERROR:
                         Toast.makeText(this, "Login Failed, " + authResultResource.message, Toast.LENGTH_SHORT).show();

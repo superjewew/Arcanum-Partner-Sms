@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">storemanagement</string>
+    <string name="action_save_title">Save</string>
+    <string name="add_partner_email_hint">Email</string>
+    <string name="add_partner_username_hint">Username</string>
+    <string name="add_partner_store_name_hint">Store Name</string>
+    <string name="action_delete_title">Delete</string>
+</resources>

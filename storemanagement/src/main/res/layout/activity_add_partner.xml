@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="partner"
+            type="com.mahavira.partnersms.storemanagement.domain.entitiy.Partner"/>
+        <variable
+            name="viewModel"
+            type="com.mahavira.partnersms.storemanagement.presentation.feature.addpartner.AddPartnerViewModel"/>
+        <import type="android.view.View"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.mahavira.partnersms.storemanagement.presentation.feature.addpartner.AddPartnerActivity"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/email_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_partner_email_hint"
+            android:inputType="textEmailAddress"
+            android:text="@={partner.email}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <EditText
+            android:id="@+id/username_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_partner_username_hint"
+            android:text="@={partner.username}"
+            app:layout_constraintTop_toBottomOf="@+id/email_et"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <EditText
+            android:id="@+id/name_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_partner_store_name_hint"
+            android:text="@={partner.name}"
+            app:layout_constraintTop_toBottomOf="@+id/username_et"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:visibility="@{viewModel.mShowLoading ? View.VISIBLE : View.INVISIBLE}"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

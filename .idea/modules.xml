@@ -5,7 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/arcanum_partner_sms.iml" filepath="$PROJECT_DIR$/arcanum_partner_sms.iml" />
       <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dashboard/dashboard.iml" filepath="$PROJECT_DIR$/dashboard/dashboard.iml" />
       <module fileurl="file://$PROJECT_DIR$/login/login.iml" filepath="$PROJECT_DIR$/login/login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/storemanagement/storemanagement.iml" filepath="$PROJECT_DIR$/storemanagement/storemanagement.iml" />
     </modules>
   </component>
 </project>
