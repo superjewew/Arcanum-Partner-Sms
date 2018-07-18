@@ -13,6 +13,8 @@ import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
 
 public class AddProductActivity extends BaseActivity<ActivityAddProductBinding, AddProductViewModel> {
 
+    Boardgame mProduct = new Boardgame();
+
     @Override
     public int getViewModelBindingVariable() {
         return BR.viewModel;
@@ -40,6 +42,8 @@ public class AddProductActivity extends BaseActivity<ActivityAddProductBinding, 
                 }
             }
         });
+
+        getDataBinding().setProduct(mProduct);
     }
 
     @Override
@@ -52,10 +56,7 @@ public class AddProductActivity extends BaseActivity<ActivityAddProductBinding, 
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.action_add_product) {
-            Boardgame product = new Boardgame();
-            product.setName("Test Product");
-            product.setQuantity(3);
-            getViewModel().attemptAddProduct(product);
+            getViewModel().attemptAddProduct(mProduct);
         }
         return super.onOptionsItemSelected(item);
     }

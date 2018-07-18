@@ -5,6 +5,9 @@
 
     <data>
         <variable
+            name="product"
+            type="com.mahavira.partnersms.inventory.domain.entity.Boardgame"/>
+        <variable
             name="viewModel"
             type="com.mahavira.partnersms.inventory.presentation.addproduct.AddProductViewModel"/>
         <import type="android.view.View"/>
@@ -14,6 +17,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.mahavira.partnersms.inventory.presentation.addproduct.AddProductActivity">
+
+        <EditText
+            android:id="@+id/product_name_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={product.name}"
+            android:hint="@string/boardgame_name_hint"/>
+
+        <EditText
+            android:id="@+id/product_quantity_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/quantity_hint"
+            android:text="@={product.quantity}"
+            app:layout_constraintTop_toBottomOf="@+id/product_name_et"
+            app:layout_constraintLeft_toLeftOf="parent"/>
 
         <ProgressBar
             android:layout_width="wrap_content"
