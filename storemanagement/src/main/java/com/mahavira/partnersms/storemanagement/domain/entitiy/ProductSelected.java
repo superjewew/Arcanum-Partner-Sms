@@ -12,6 +12,11 @@ public class ProductSelected {
     private Boardgame product;
     private boolean selected;
 
+    public ProductSelected(Boardgame product, boolean selected) {
+        this.product = product;
+        this.selected = selected;
+    }
+
     public Boardgame getProduct() {
         return product;
     }

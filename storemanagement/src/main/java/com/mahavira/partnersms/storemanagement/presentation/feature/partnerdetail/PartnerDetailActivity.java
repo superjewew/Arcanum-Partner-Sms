@@ -14,8 +14,11 @@ import com.mahavira.partnersms.storemanagement.BR;
 import com.mahavira.partnersms.storemanagement.R;
 import com.mahavira.partnersms.storemanagement.databinding.ActivityPartnerDetailBinding;
 import com.mahavira.partnersms.storemanagement.domain.entitiy.Partner;
+import com.mahavira.partnersms.storemanagement.presentation.StoreManagementRouter;
 
 import org.parceler.Parcels;
+
+import javax.inject.Inject;
 
 public class PartnerDetailActivity extends BaseActivity<ActivityPartnerDetailBinding, PartnerDetailViewModel>
         implements ExtraInjectable{
@@ -23,6 +26,9 @@ public class PartnerDetailActivity extends BaseActivity<ActivityPartnerDetailBin
     public static final String PARTNER_EXTRA = "partner";
 
     private Partner mPartner;
+
+    @Inject
+    StoreManagementRouter mRouter;
 
     @Override
     public int getViewModelBindingVariable() {
@@ -85,7 +91,7 @@ public class PartnerDetailActivity extends BaseActivity<ActivityPartnerDetailBin
             alertDialogBuilder.create().show();
 
         } else if(id == R.id.action_lent) {
-
+            mRouter.goToLending(this, mPartner);
         }
         return super.onOptionsItemSelected(item);
     }

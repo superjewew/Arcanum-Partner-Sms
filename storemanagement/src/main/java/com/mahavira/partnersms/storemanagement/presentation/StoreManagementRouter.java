@@ -13,4 +13,5 @@ public interface StoreManagementRouter {
     void goToAddPartner(Context context);
     void goToPartnerList(Context context);
     void goToPartnerDetail(Context context, Partner partner);
+    void goToLending(Context context, Partner partner);
 }
