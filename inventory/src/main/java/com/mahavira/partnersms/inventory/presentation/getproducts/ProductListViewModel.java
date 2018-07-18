@@ -36,6 +36,10 @@ public class ProductListViewModel extends BaseViewModel {
         mGetProductsUseCase = getProductsUseCase;
     }
 
+    MutableLiveData<Resource<List<Boardgame>>> getProductListData() {
+        return mProductListData;
+    }
+
     void attemptGetProducts() {
         mDisposable.add(mGetProductsUseCase.execute()
         .subscribeOn(Schedulers.io())

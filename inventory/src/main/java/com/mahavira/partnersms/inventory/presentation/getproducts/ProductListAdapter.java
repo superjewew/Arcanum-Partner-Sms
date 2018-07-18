@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.mahavira.partnersms.inventory.databinding.ItemProductListBinding;
 import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,13 +19,12 @@ import java.util.List;
 
 public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.ProductListViewHolder> {
 
-    private List<Boardgame> mProductList;
+    private List<Boardgame> mProductList = new ArrayList<>();
 
     private Context mContext;
 
-    ProductListAdapter(Context context, List<Boardgame> products) {
+    ProductListAdapter(Context context) {
         mContext = context;
-        mProductList = products;
     }
 
     @NonNull
@@ -46,6 +46,11 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     @Override
     public int getItemCount() {
         return mProductList.size();
+    }
+
+    void replaceData(List<Boardgame> products) {
+        mProductList = products;
+        notifyDataSetChanged();
     }
 
     class ProductListViewHolder extends RecyclerView.ViewHolder {
