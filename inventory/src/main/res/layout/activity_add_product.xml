@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/quantity_hint"
-            android:text="@={product.quantity}"
+            android:text="@{Integer.toString(product.quantity)}"
             app:layout_constraintTop_toBottomOf="@+id/product_name_et"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
