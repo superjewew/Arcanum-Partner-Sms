@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.WriteBatch;
 import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
 import com.mahavira.partnersms.inventory.domain.repo.ProductRepository;
 
@@ -57,12 +58,27 @@ public class ProductRepoImpl implements ProductRepository {
         return setValue(mInstance.collection(PRODUCT_COLLECTION).document(product.getName()), product);
     }
 
+    @Override
+    public Completable updateProducts(List<Boardgame> param) {
+        WriteBatch batch = mInstance.batch();
+        for (Boardgame product : param) {
+            DocumentReference ref = mInstance.collection(PRODUCT_COLLECTION).document(product.getName());
+            batch.set(ref, product);
+        }
+        return setValue(batch);
+    }
+
     @NonNull
     private Completable setValue(@NonNull final DocumentReference ref, final Object value) {
         return Completable.create(
                 e -> ref.set(value)
                         .addOnSuccessListener(documentReference -> e.onComplete())
                         .addOnFailureListener(e::onError));
+    }
+
+    @NonNull
+    private Completable setValue(@NonNull WriteBatch batch) {
+        return Completable.create(e -> batch.commit().addOnCompleteListener(task -> e.onComplete()));
     }
 
     @NonNull
