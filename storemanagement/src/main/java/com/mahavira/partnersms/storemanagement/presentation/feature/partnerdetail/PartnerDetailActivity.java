@@ -84,6 +84,8 @@ public class PartnerDetailActivity extends BaseActivity<ActivityPartnerDetailBin
 
             alertDialogBuilder.create().show();
 
+        } else if(id == R.id.action_lent) {
+
         }
         return super.onOptionsItemSelected(item);
     }
