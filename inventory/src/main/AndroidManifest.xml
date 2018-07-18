@@ -5,7 +5,8 @@
     <application>
         <activity
             android:name=".presentation.addproduct.AddProductActivity"
-            android:label="Add Product"/>
+            android:label="Add Product" />
+        <activity android:name=".presentation.getproducts.ProductListActivity"></activity>
     </application>
 
 </manifest>
