@@ -34,12 +34,12 @@ public class ProductRepoImpl implements ProductRepository {
 
     @Override
     public Single<List<Boardgame>> getProducts() {
-        return getValue(mInstance.collection("PRODUCT_COLLECTION"), Boardgame.class).toSingle();
+        return getValue(mInstance.collection(PRODUCT_COLLECTION), Boardgame.class).toSingle();
     }
 
     @Override
     public Completable addProduct(Boardgame product) {
-        return setValue(mInstance.collection("PRODUCT_COLLECTION").document(product.getName()), product);
+        return setValue(mInstance.collection(PRODUCT_COLLECTION).document(product.getName()), product);
     }
 
     @Override

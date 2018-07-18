@@ -25,6 +25,7 @@ android {
     dataBinding {
         enabled true
     }
+
     compileOptions {
         targetCompatibility 1.8
         sourceCompatibility 1.8
@@ -40,7 +41,6 @@ dependencies {
     implementation libs.supportV4
     implementation libs.constraintLayout
     implementation libs.supportRecyclerView
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation libs.junit
     androidTestImplementation libs.supportTestRunner
     androidTestImplementation libs.espressoCore

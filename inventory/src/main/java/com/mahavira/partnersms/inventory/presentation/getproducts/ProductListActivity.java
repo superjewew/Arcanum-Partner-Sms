@@ -2,17 +2,22 @@ package com.mahavira.partnersms.inventory.presentation.getproducts;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.mahavira.partnersms.base.presentation.BaseActivity;
 import com.mahavira.partnersms.inventory.BR;
 import com.mahavira.partnersms.inventory.R;
 import com.mahavira.partnersms.inventory.databinding.ActivityProductListBinding;
-import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
+import com.mahavira.partnersms.inventory.presentation.InventoryRouter;
 
-import java.util.List;
+import javax.inject.Inject;
 
 public class ProductListActivity extends BaseActivity<ActivityProductListBinding, ProductListViewModel> {
+
+    @Inject
+    InventoryRouter mRouter;
 
     private ProductListAdapter mAdapter;
 
@@ -56,5 +61,20 @@ public class ProductListActivity extends BaseActivity<ActivityProductListBinding
 
     private void setupAdapter() {
         mAdapter = new ProductListAdapter(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.product_list_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.action_add_product) {
+            mRouter.goToAddProduct(this);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

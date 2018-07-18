@@ -49,6 +49,7 @@ public class ProductListViewModel extends BaseViewModel {
     }
 
     private void onFailed(Throwable throwable) {
+        mShowLoading.set(false);
         mProductListData.setValue(Resource.error(null, throwable.getLocalizedMessage(), null));
     }
 

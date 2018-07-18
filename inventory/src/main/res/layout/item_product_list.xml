@@ -46,7 +46,7 @@
             android:paddingBottom="8dp"
             android:paddingRight="16dp"
             android:gravity="center_vertical"
-            android:text="@{product.quantity}"
+            android:text="@{Integer.toString(product.quantity)}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/plus_quantity_btn"

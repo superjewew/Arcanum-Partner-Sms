@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">inventory</string>
     <string name="add_product_action_title">Add</string>
+    <string name="go_to_add_product_action_title">Add Product</string>
 </resources>
