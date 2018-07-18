@@ -1,8 +1,10 @@
 package com.mahavira.partnersms.storemanagement.domain.entitiy;
 
 import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
+import com.mahavira.partnersms.inventory.presentation.ProductListParcelConverter;
 
 import org.parceler.Parcel;
+import org.parceler.ParcelPropertyConverter;
 
 import java.util.List;
 
@@ -22,6 +24,8 @@ public class Partner {
     int visitorToday;
     int visitorThisMonth;
     String lastUpdated;
+
+    @ParcelPropertyConverter(ProductListParcelConverter.class)
     List<Boardgame> borrowedGames;
 
     public String getName() {
