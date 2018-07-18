@@ -1,6 +1,10 @@
 package com.mahavira.partnersms.storemanagement.domain.entitiy;
 
+import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
+
 import org.parceler.Parcel;
+
+import java.util.List;
 
 /**
  * Created by norman on 15/07/18.
@@ -18,6 +22,7 @@ public class Partner {
     int visitorToday;
     int visitorThisMonth;
     String lastUpdated;
+    List<Boardgame> borrowedGames;
 
     public String getName() {
         return name;
@@ -89,5 +94,13 @@ public class Partner {
 
     public void setLastUpdated(String lastUpdated) {
         this.lastUpdated = lastUpdated;
+    }
+
+    public List<Boardgame> getBorrowedGames() {
+        return borrowedGames;
+    }
+
+    public void setBorrowedGames(List<Boardgame> borrowedGames) {
+        this.borrowedGames = borrowedGames;
     }
 }

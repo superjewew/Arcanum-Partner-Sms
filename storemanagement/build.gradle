@@ -36,6 +36,9 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation project(path: ':base')
+    implementation project(path: ':inventory')
+
     implementation libs.supportAppCompat
     implementation libs.supportV4
     implementation libs.constraintLayout
@@ -69,7 +72,6 @@ dependencies {
     // RxJava
     implementation libs.rxAndroid
     implementation libs.rxJava
-    implementation project(path: ':base')
 
     // Parceler
     implementation libs.parcelerApi
