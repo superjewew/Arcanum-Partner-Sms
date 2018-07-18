@@ -1,5 +1,6 @@
 package com.mahavira.partnersms.inventory.di;
 
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.mahavira.partnersms.inventory.data.ProductRepoImpl;
 import com.mahavira.partnersms.inventory.domain.repo.ProductRepository;
 
@@ -18,7 +19,7 @@ public class InventoryModule {
 
     @Provides
     @Singleton
-    ProductRepository provideProductRepo() {
-        return new ProductRepoImpl();
+    ProductRepository provideProductRepo(FirebaseFirestore firestore) {
+        return new ProductRepoImpl(firestore);
     }
 }

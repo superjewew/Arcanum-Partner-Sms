@@ -6,14 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.mahavira.partnersms.inventory.presentation.AddProductViewModel"/>
+            type="com.mahavira.partnersms.inventory.presentation.addproduct.AddProductViewModel"/>
         <import type="android.view.View"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.mahavira.partnersms.inventory.presentation.AddProductActivity">
+        tools:context="com.mahavira.partnersms.inventory.presentation.addproduct.AddProductActivity">
 
         <ProgressBar
             android:layout_width="wrap_content"

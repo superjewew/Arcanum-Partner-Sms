@@ -3,8 +3,8 @@ package com.mahavira.partnersms.inventory.di;
 import android.arch.lifecycle.ViewModel;
 
 import com.mahavira.partnersms.base.di.ViewModelKey;
-import com.mahavira.partnersms.inventory.presentation.AddProductActivity;
-import com.mahavira.partnersms.inventory.presentation.AddProductViewModel;
+import com.mahavira.partnersms.inventory.presentation.addproduct.AddProductActivity;
+import com.mahavira.partnersms.inventory.presentation.addproduct.AddProductViewModel;
 
 import dagger.Binds;
 import dagger.Module;

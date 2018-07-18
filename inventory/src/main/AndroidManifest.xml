@@ -4,7 +4,7 @@
 
     <application>
         <activity
-            android:name=".presentation.AddProductActivity"
+            android:name=".presentation.addproduct.AddProductActivity"
             android:label="Add Product"/>
     </application>
 

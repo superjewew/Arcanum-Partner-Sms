@@ -1,4 +1,4 @@
-package com.mahavira.partnersms.inventory.presentation;
+package com.mahavira.partnersms.inventory.presentation.addproduct;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.databinding.ObservableBoolean;
@@ -39,7 +39,7 @@ public class AddProductViewModel extends BaseViewModel {
         mDisposable.clear();
     }
 
-    public MutableLiveData<Resource<Boolean>> getAddProductResult() {
+    MutableLiveData<Resource<Boolean>> getAddProductResult() {
         return mAddProductResult;
     }
 
