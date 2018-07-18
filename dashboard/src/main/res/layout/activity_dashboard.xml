@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/partner_list_btn"
-            android:text="Add Product"/>
+            android:text="View Products"/>
 
     </android.support.constraint.ConstraintLayout>
 </layout>
