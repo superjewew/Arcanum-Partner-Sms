@@ -53,8 +53,8 @@ public class LendingActivity extends BaseActivity<ActivityLendingBinding, Lendin
             if (products != null) {
                 switch (products.status) {
                     case SUCCESS:
-                        mAvailableProducts = convertToProductSelected(products.data);
-                        mAdapter.replaceData(mAvailableProducts);
+                        mAvailableProducts = products.data;
+                        mAdapter.replaceData(products.data);
                         break;
                     case ERROR:
                         Toast.makeText(this, "Error retrieving products, " + products.message, Toast.LENGTH_SHORT).show();
@@ -64,15 +64,6 @@ public class LendingActivity extends BaseActivity<ActivityLendingBinding, Lendin
         });
 
         getViewModel().attemptGetProducts();
-    }
-
-    private List<ProductSelected> convertToProductSelected(List<Boardgame> data) {
-        List<ProductSelected> res = new ArrayList<>();
-        for (Boardgame product : data) {
-            ProductSelected ps = new ProductSelected(product, false);
-            res.add(ps);
-        }
-        return res;
     }
 
     private void setupRecylerView(LendingAdapter mAdapter) {
@@ -101,7 +92,7 @@ public class LendingActivity extends BaseActivity<ActivityLendingBinding, Lendin
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.action_lent) {
-
+            getViewModel().attemptLentProducts(mAvailableProducts);
         }
         return super.onOptionsItemSelected(item);
     }
