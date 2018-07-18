@@ -53,6 +53,10 @@ public class LendingViewModel extends BaseViewModel {
                 .subscribe(this::onSuccess, this::onFailed));
     }
 
+    void attemptLentProducts() {
+
+    }
+
     private void onFailed(Throwable throwable) {
         mShowLoading.set(false);
         mProductData.setValue(Resource.error(null, throwable.getLocalizedMessage(), null));

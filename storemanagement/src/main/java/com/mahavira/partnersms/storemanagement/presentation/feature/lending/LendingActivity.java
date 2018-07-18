@@ -3,6 +3,8 @@ package com.mahavira.partnersms.storemanagement.presentation.feature.lending;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.mahavira.partnersms.base.presentation.BaseActivity;
@@ -87,5 +89,20 @@ public class LendingActivity extends BaseActivity<ActivityLendingBinding, Lendin
         if(extras.containsKey(PARTNER_EXTRA)) {
             mPartner = Parcels.unwrap(extras.getParcelable(PARTNER_EXTRA));
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.lending_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.action_lent) {
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
