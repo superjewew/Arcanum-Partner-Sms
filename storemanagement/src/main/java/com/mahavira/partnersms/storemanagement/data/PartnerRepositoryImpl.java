@@ -23,6 +23,7 @@ import io.reactivex.Single;
 
 public class PartnerRepositoryImpl implements PartnerRepository {
 
+    private final String PARTNER_COLLECTION = "partner";
     private FirebaseFirestore mInstance;
 
     @Inject
@@ -32,17 +33,22 @@ public class PartnerRepositoryImpl implements PartnerRepository {
 
     @Override
     public Completable addPartner(Partner partner) {
-        return setValue(mInstance.collection("partner").document(partner.getUsername()), partner);
+        return setValue(mInstance.collection(PARTNER_COLLECTION).document(partner.getUsername()), partner);
     }
 
     @Override
     public Single<List<Partner>> getPartner() {
-        return getValue(mInstance.collection("partner"), Partner.class).toSingle();
+        return getValue(mInstance.collection(PARTNER_COLLECTION), Partner.class).toSingle();
     }
 
     @Override
     public Completable deletePartner(Partner partner) {
-        return deleteValue(mInstance.collection("partner").document(partner.getUsername()));
+        return deleteValue(mInstance.collection(PARTNER_COLLECTION).document(partner.getUsername()));
+    }
+
+    @Override
+    public Completable updatePartner(Partner partner) {
+        return setValue(mInstance.collection(PARTNER_COLLECTION).document(partner.getUsername()), partner);
     }
 
     @NonNull
