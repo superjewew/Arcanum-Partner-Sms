@@ -9,7 +9,8 @@
             android:label="Partner List" />
         <activity
             android:name=".presentation.feature.partnerdetail.PartnerDetailActivity"
-            android:label="Partner Detail"/>
+            android:label="Partner Detail" />
+        <activity android:name=".presentation.feature.lending.LendingActivity"></activity>
     </application>
 
 </manifest>
