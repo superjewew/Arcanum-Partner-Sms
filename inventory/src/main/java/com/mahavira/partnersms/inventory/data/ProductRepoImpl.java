@@ -54,7 +54,7 @@ public class ProductRepoImpl implements ProductRepository {
 
     @Override
     public Completable updateProduct(Boardgame product) {
-        return null;
+        return setValue(mInstance.collection(PRODUCT_COLLECTION).document(product.getName()), product);
     }
 
     @NonNull

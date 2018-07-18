@@ -21,10 +21,13 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     private List<Boardgame> mProductList = new ArrayList<>();
 
+    private ProductListViewModel mViewModel;
+
     private Context mContext;
 
-    ProductListAdapter(Context context) {
+    ProductListAdapter(Context context, ProductListViewModel viewModel) {
         mContext = context;
+        mViewModel = viewModel;
     }
 
     @NonNull
@@ -63,8 +66,33 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         }
 
         public void bind(Boardgame product) {
+            ItemClickListener clickListener = new ItemClickListener() {
+                @Override
+                public void onItemClicked(Boardgame product) {
+
+                }
+
+                @Override
+                public void onAddQuantity(Boardgame product) {
+                    product.addQuantity();
+                    mViewModel.getProductQuantityChanged().setValue(product);
+                }
+
+                @Override
+                public void onReduceQuantity(Boardgame product) {
+                    product.reduceQuantity();
+                    mViewModel.getProductQuantityChanged().setValue(product);
+                }
+            };
+            mBinding.setClickListener(clickListener);
             mBinding.setProduct(product);
             mBinding.executePendingBindings();
         }
+    }
+
+    public interface ItemClickListener {
+        void onItemClicked(Boardgame product);
+        void onAddQuantity(Boardgame product);
+        void onReduceQuantity(Boardgame product);
     }
 }

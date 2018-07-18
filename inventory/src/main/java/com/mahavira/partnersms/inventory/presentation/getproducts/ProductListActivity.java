@@ -51,6 +51,13 @@ public class ProductListActivity extends BaseActivity<ActivityProductListBinding
             }
         });
 
+        getViewModel().getProductQuantityChanged().observe(this, boardgame -> getViewModel().updateProduct(boardgame));
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         getViewModel().attemptGetProducts();
     }
 
@@ -60,7 +67,7 @@ public class ProductListActivity extends BaseActivity<ActivityProductListBinding
     }
 
     private void setupAdapter() {
-        mAdapter = new ProductListAdapter(this);
+        mAdapter = new ProductListAdapter(this, getViewModel());
     }
 
     @Override
