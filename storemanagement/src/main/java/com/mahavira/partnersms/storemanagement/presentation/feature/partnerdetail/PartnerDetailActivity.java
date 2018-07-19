@@ -1,15 +1,19 @@
 package com.mahavira.partnersms.storemanagement.presentation.feature.partnerdetail;
 
 import android.content.DialogInterface;
+import android.databinding.BindingAdapter;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mahavira.partnersms.base.presentation.BaseActivity;
 import com.mahavira.partnersms.base.presentation.ExtraInjectable;
+import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
 import com.mahavira.partnersms.storemanagement.BR;
 import com.mahavira.partnersms.storemanagement.R;
 import com.mahavira.partnersms.storemanagement.databinding.ActivityPartnerDetailBinding;
@@ -17,6 +21,8 @@ import com.mahavira.partnersms.storemanagement.domain.entitiy.Partner;
 import com.mahavira.partnersms.storemanagement.presentation.StoreManagementRouter;
 
 import org.parceler.Parcels;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -102,5 +108,16 @@ public class PartnerDetailActivity extends BaseActivity<ActivityPartnerDetailBin
             mRouter.goToLending(this, mPartner);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @BindingAdapter("borrowedList")
+    public static void setBorrowedList(LinearLayout view, List<Boardgame> list) {
+        if(list != null) {
+            for (Boardgame product : list) {
+                TextView tv = new TextView(view.getContext());
+                tv.setText(product.getName());
+                view.addView(tv);
+            }
+        }
     }
 }

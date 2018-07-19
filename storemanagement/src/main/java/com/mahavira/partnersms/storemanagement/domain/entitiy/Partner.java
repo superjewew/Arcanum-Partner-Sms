@@ -6,6 +6,7 @@ import com.mahavira.partnersms.inventory.presentation.ProductListParcelConverter
 import org.parceler.Parcel;
 import org.parceler.ParcelPropertyConverter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ public class Partner {
     String lastUpdated;
 
     @ParcelPropertyConverter(ProductListParcelConverter.class)
-    List<Boardgame> borrowedGames;
+    List<Boardgame> borrowedGames = new ArrayList<>();
 
     public String getName() {
         return name;
