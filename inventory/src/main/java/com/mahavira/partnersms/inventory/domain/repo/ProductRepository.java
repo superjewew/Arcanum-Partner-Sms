@@ -19,4 +19,5 @@ public interface ProductRepository {
     Completable deleteProduct(Boardgame product);
     Single<Boardgame> getProductByName(String name);
     Completable updateProduct(Boardgame product);
+    Completable updateProducts(List<Boardgame> param);
 }

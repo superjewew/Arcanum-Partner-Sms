@@ -16,4 +16,5 @@ public interface PartnerRepository {
     Completable addPartner(Partner partner);
     Single<List<Partner>> getPartner();
     Completable deletePartner(Partner partner);
+    Completable updatePartner(Partner partner);
 }
