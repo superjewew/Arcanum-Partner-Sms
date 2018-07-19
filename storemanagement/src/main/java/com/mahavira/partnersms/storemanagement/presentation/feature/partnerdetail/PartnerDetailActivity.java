@@ -75,6 +75,14 @@ public class PartnerDetailActivity extends BaseActivity<ActivityPartnerDetailBin
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if(mPartner.getBorrowedGames().size() > 0) {
+            menu.findItem(R.id.action_lent).setEnabled(false);
+        }
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.action_delete) {

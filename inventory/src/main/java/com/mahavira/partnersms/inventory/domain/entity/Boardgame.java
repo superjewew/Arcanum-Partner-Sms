@@ -5,14 +5,17 @@ import android.databinding.Bindable;
 
 import com.mahavira.partnersms.inventory.BR;
 
+import org.parceler.Parcel;
+
 /**
  * Created by norman on 17/07/18.
  *
  */
 
+@Parcel
 public class Boardgame extends BaseObservable {
-    private String name;
-    private int quantity;
+    String name;
+    int quantity;
 
     public String getName() {
         return name;
