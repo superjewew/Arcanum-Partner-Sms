@@ -2,6 +2,8 @@ package com.mahavira.partnersms.storemanagement.presentation.feature.partnerlist
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.mahavira.partnersms.base.presentation.BaseActivity;
@@ -73,5 +75,20 @@ public class PartnerListActivity extends BaseActivity<ActivityPartnerListBinding
     private void setupRecyclerView(PartnerListAdapter mAdapter) {
         getDataBinding().partnersRv.setLayoutManager(new LinearLayoutManager(this));
         getDataBinding().partnersRv.setAdapter(mAdapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.partner_list_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.action_add_partner) {
+            mRouter.goToAddPartner(this);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

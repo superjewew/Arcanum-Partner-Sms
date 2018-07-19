@@ -39,18 +39,4 @@ public class DashboardActivity extends BaseActivity<ActivityDashboardBinding, Da
         getDataBinding().addProductBtn.setOnClickListener(view -> mInventoryRouter.goToProductList(this));
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.dashboard_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int i = item.getItemId();
-        if (i == R.id.action_add_partner) {
-            mRouter.goToAddPartner(this);
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }
