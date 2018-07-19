@@ -8,7 +8,9 @@ import com.mahavira.partnersms.base.presentation.BaseViewModel;
 import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
 import com.mahavira.partnersms.inventory.domain.usecase.GetProductsUseCase;
 import com.mahavira.partnersms.inventory.domain.usecase.UpdateMultipleProductUseCase;
+import com.mahavira.partnersms.storemanagement.domain.entitiy.Partner;
 import com.mahavira.partnersms.storemanagement.domain.entitiy.ProductSelected;
+import com.mahavira.partnersms.storemanagement.domain.usecase.UpdatePartnerUseCase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,10 +40,15 @@ public class LendingViewModel extends BaseViewModel {
 
     private UpdateMultipleProductUseCase mUpdateMultipleProductUseCase;
 
+    private UpdatePartnerUseCase mUpdatePartnerUseCase;
+
     @Inject
-    LendingViewModel(GetProductsUseCase getProductsUseCase, UpdateMultipleProductUseCase updateMultipleProductUseCase) {
+    LendingViewModel(GetProductsUseCase getProductsUseCase,
+                     UpdateMultipleProductUseCase updateMultipleProductUseCase,
+                     UpdatePartnerUseCase updatePartnerUseCase) {
         mGetProductsUseCase = getProductsUseCase;
         mUpdateMultipleProductUseCase = updateMultipleProductUseCase;
+        mUpdatePartnerUseCase = updatePartnerUseCase;
     }
 
     @Override
@@ -53,6 +60,10 @@ public class LendingViewModel extends BaseViewModel {
         return mProductData;
     }
 
+    public MutableLiveData<Boolean> getUpdateSuccessData() {
+        return mUpdateSuccessData;
+    }
+
     void attemptGetProducts() {
         mDisposable.add(mGetProductsUseCase.execute()
                 .subscribeOn(Schedulers.io())
@@ -61,14 +72,23 @@ public class LendingViewModel extends BaseViewModel {
                 .subscribe(this::onSuccess, this::onFailed));
     }
 
-    void attemptLentProducts(List<ProductSelected> products) {
+    void attemptLentProducts(Partner partner, List<ProductSelected> products) {
         List<Boardgame> data = convertSelectedToProduct(products);
+        partner.setBorrowedGames(data);
         try {
             mDisposable.add(mUpdateMultipleProductUseCase.execute(data)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnSubscribe(__ -> onSubscribe())
                     .subscribe(this::onUpdateSuccess, this::onFailed));
+
+            mDisposable.add(mUpdatePartnerUseCase.execute(partner)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doOnSubscribe(__ -> onSubscribe())
+                    .subscribe(this::onUpdateSuccess, this::onFailed));
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

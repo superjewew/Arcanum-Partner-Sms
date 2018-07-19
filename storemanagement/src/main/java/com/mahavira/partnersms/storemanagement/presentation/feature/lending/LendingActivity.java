@@ -63,6 +63,15 @@ public class LendingActivity extends BaseActivity<ActivityLendingBinding, Lendin
             }
         });
 
+        getViewModel().getUpdateSuccessData().observe(this, updateSuccess -> {
+            if(updateSuccess != null) {
+                if(updateSuccess) {
+                    Toast.makeText(this, "Lent Successful", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        });
+
         getViewModel().attemptGetProducts();
     }
 
@@ -92,7 +101,7 @@ public class LendingActivity extends BaseActivity<ActivityLendingBinding, Lendin
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.action_lent) {
-            getViewModel().attemptLentProducts(mAvailableProducts);
+            getViewModel().attemptLentProducts(mPartner, mAvailableProducts);
         }
         return super.onOptionsItemSelected(item);
     }
