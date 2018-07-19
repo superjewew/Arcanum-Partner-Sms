@@ -25,6 +25,6 @@ public class AddPartnerUseCase implements CompletableUseCase<Partner> {
 
     @Override
     public Completable execute(Partner param) {
-        return mRepository.addPartner(param);
+        return mRepository.addPartner(param).andThen(mRepository.addPartnerAuth(param));
     }
 }

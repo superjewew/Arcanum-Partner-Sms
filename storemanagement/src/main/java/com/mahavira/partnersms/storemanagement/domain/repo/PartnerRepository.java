@@ -14,6 +14,7 @@ import io.reactivex.Single;
 
 public interface PartnerRepository {
     Completable addPartner(Partner partner);
+    Completable addPartnerAuth(Partner partner);
     Single<List<Partner>> getPartner();
     Completable deletePartner(Partner partner);
     Completable updatePartner(Partner partner);

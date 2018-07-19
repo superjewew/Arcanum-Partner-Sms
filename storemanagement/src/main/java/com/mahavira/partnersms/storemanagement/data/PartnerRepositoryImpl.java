@@ -2,6 +2,7 @@ package com.mahavira.partnersms.storemanagement.data;
 
 import android.support.annotation.NonNull;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -25,15 +26,22 @@ public class PartnerRepositoryImpl implements PartnerRepository {
 
     private final String PARTNER_COLLECTION = "partner";
     private FirebaseFirestore mInstance;
+    private FirebaseAuth mAuthInstance;
 
     @Inject
-    public PartnerRepositoryImpl(FirebaseFirestore instance) {
+    public PartnerRepositoryImpl(FirebaseFirestore instance, FirebaseAuth authInstance) {
         mInstance = instance;
+        mAuthInstance = authInstance;
     }
 
     @Override
     public Completable addPartner(Partner partner) {
         return setValue(mInstance.collection(PARTNER_COLLECTION).document(partner.getUsername()), partner);
+    }
+
+    @Override
+    public Completable addPartnerAuth(Partner partner) {
+        return createAuth(mAuthInstance, partner);
     }
 
     @Override
@@ -49,6 +57,18 @@ public class PartnerRepositoryImpl implements PartnerRepository {
     @Override
     public Completable updatePartner(Partner partner) {
         return setValue(mInstance.collection(PARTNER_COLLECTION).document(partner.getUsername()), partner);
+    }
+
+    @NonNull
+    private Completable createAuth(@NonNull FirebaseAuth auth, Partner partner) {
+        return Completable.create(e -> auth.createUserWithEmailAndPassword(partner.getEmail(), "123456")
+                .addOnCompleteListener(task -> {
+                    if(task.isSuccessful()) {
+                        e.onComplete();
+                    } else {
+                        e.onError(task.getException());
+                    }
+                }).addOnFailureListener(e::onError));
     }
 
     @NonNull

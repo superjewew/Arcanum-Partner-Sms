@@ -1,5 +1,6 @@
 package com.mahavira.partnersms.storemanagement.di;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mahavira.partnersms.storemanagement.data.PartnerRepositoryImpl;
 import com.mahavira.partnersms.storemanagement.domain.repo.PartnerRepository;
@@ -22,8 +23,8 @@ public class StoreManagementModule {
 
     @Provides
     @Singleton
-    PartnerRepository providePartnerRepository(FirebaseFirestore firebaseFirestore) {
-        return new PartnerRepositoryImpl(firebaseFirestore);
+    PartnerRepository providePartnerRepository(FirebaseFirestore firebaseFirestore, FirebaseAuth firebaseAuth) {
+        return new PartnerRepositoryImpl(firebaseFirestore, firebaseAuth);
     }
 
     @Provides
