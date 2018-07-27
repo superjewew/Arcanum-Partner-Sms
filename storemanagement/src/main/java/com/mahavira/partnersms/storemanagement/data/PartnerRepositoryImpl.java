@@ -36,7 +36,7 @@ public class PartnerRepositoryImpl implements PartnerRepository {
 
     @Override
     public Completable addPartner(Partner partner) {
-        return setValue(mInstance.collection(PARTNER_COLLECTION).document(partner.getUsername()), partner);
+        return setValue(mInstance.collection(PARTNER_COLLECTION).document(partner.getEmail()), partner);
     }
 
     @Override
@@ -51,12 +51,12 @@ public class PartnerRepositoryImpl implements PartnerRepository {
 
     @Override
     public Completable deletePartner(Partner partner) {
-        return deleteValue(mInstance.collection(PARTNER_COLLECTION).document(partner.getUsername()));
+        return deleteValue(mInstance.collection(PARTNER_COLLECTION).document(partner.getEmail()));
     }
 
     @Override
     public Completable updatePartner(Partner partner) {
-        return setValue(mInstance.collection(PARTNER_COLLECTION).document(partner.getUsername()), partner);
+        return setValue(mInstance.collection(PARTNER_COLLECTION).document(partner.getEmail()), partner);
     }
 
     @NonNull
