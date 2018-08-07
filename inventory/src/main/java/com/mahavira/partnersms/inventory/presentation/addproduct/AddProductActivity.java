@@ -3,6 +3,7 @@ package com.mahavira.partnersms.inventory.presentation.addproduct;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -12,6 +13,9 @@ import com.mahavira.partnersms.inventory.BR;
 import com.mahavira.partnersms.inventory.R;
 import com.mahavira.partnersms.inventory.databinding.ActivityAddProductBinding;
 import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddProductActivity extends BaseActivity<ActivityAddProductBinding, AddProductViewModel> {
 
@@ -60,9 +64,25 @@ public class AddProductActivity extends BaseActivity<ActivityAddProductBinding, 
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.action_add_product) {
+            List<String> components = createComponentList();
+            mProduct.setComponents(components);
             getViewModel().attemptAddProduct(mProduct);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private List<String> createComponentList() {
+        List<String> result = new ArrayList<>();
+        LinearLayout layout = getDataBinding().componentListLayout;
+        int count = layout.getChildCount();
+        for (int i = 0; i < count; i++) {
+            View v = layout.getChildAt(i);
+            if(v instanceof EditText) {
+                EditText et = (EditText) v;
+                result.add(et.getText().toString());
+            }
+        }
+        return result;
     }
 
     private void addNewField() {
