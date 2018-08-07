@@ -1,6 +1,7 @@
 package com.mahavira.partnersms.inventory.presentation.returnrequest;
 
 import com.mahavira.partnersms.base.presentation.BaseViewModel;
+import com.mahavira.partnersms.inventory.domain.usecase.GetReturnRequestsUseCase;
 
 import javax.inject.Inject;
 
@@ -10,8 +11,10 @@ import javax.inject.Inject;
 
 public class ReturnRequestViewModel extends BaseViewModel {
 
-    @Inject
-    public ReturnRequestViewModel() {
+    private GetReturnRequestsUseCase mGetReturnRequestUseCase;
 
+    @Inject
+    public ReturnRequestViewModel(GetReturnRequestsUseCase getReturnRequestsUseCase) {
+        mGetReturnRequestUseCase = getReturnRequestsUseCase;
     }
 }

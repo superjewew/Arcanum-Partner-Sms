@@ -6,11 +6,15 @@
         <variable
             name="request"
             type="com.mahavira.partnersms.inventory.domain.entity.ReturnRequest"/>
+        <variable
+            name="clickListener"
+            type="com.mahavira.partnersms.inventory.presentation.returnrequest.ReturnRequestAdapter.ItemClickListener"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onItemClicked(request)}">
 
         <TextView
             android:id="@+id/name_tv"

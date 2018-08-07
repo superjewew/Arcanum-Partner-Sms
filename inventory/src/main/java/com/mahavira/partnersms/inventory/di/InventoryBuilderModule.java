@@ -7,6 +7,8 @@ import com.mahavira.partnersms.inventory.presentation.addproduct.AddProductActiv
 import com.mahavira.partnersms.inventory.presentation.addproduct.AddProductViewModel;
 import com.mahavira.partnersms.inventory.presentation.getproducts.ProductListActivity;
 import com.mahavira.partnersms.inventory.presentation.getproducts.ProductListViewModel;
+import com.mahavira.partnersms.inventory.presentation.returnrequest.ReturnRequestListActivity;
+import com.mahavira.partnersms.inventory.presentation.returnrequest.ReturnRequestViewModel;
 
 import dagger.Binds;
 import dagger.Module;
@@ -27,6 +29,9 @@ public abstract class InventoryBuilderModule {
     @ContributesAndroidInjector
     abstract ProductListActivity bindProductListActivity();
 
+    @ContributesAndroidInjector
+    abstract ReturnRequestListActivity bindReturnRequestListActivity();
+
     @Binds
     @IntoMap
     @ViewModelKey(AddProductViewModel.class)
@@ -36,4 +41,9 @@ public abstract class InventoryBuilderModule {
     @IntoMap
     @ViewModelKey(ProductListViewModel.class)
     abstract ViewModel bindProductListViewModel(ProductListViewModel productListViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ReturnRequestViewModel.class)
+    abstract ViewModel bindReturnRequestListViewModel(ReturnRequestViewModel returnRequestViewModel);
 }

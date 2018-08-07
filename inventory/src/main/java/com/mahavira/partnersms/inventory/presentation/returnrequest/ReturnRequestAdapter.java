@@ -66,4 +66,8 @@ public class ReturnRequestAdapter extends RecyclerView.Adapter<ReturnRequestAdap
             mBinding.executePendingBindings();
         }
     }
+
+    public interface ItemClickListener {
+        void onItemClicked(ReturnRequest request);
+    }
 }
