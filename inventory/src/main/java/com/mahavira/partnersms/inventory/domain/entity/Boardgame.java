@@ -7,6 +7,8 @@ import com.mahavira.partnersms.inventory.BR;
 
 import org.parceler.Parcel;
 
+import java.util.List;
+
 /**
  * Created by norman on 17/07/18.
  *
@@ -16,6 +18,7 @@ import org.parceler.Parcel;
 public class Boardgame extends BaseObservable {
     String name;
     int quantity;
+    List<String> components;
 
     public String getName() {
         return name;
@@ -43,5 +46,13 @@ public class Boardgame extends BaseObservable {
     public void reduceQuantity() {
         quantity--;
         notifyPropertyChanged(BR.quantity);
+    }
+
+    public List<String> getComponents() {
+        return components;
+    }
+
+    public void setComponents(List<String> components) {
+        this.components = components;
     }
 }
