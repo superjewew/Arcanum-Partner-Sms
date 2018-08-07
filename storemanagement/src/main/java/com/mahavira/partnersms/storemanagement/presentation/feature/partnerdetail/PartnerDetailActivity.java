@@ -111,11 +111,11 @@ public class PartnerDetailActivity extends BaseActivity<ActivityPartnerDetailBin
     }
 
     @BindingAdapter("borrowedList")
-    public static void setBorrowedList(LinearLayout view, List<Boardgame> list) {
+    public static void setBorrowedList(LinearLayout view, List<String> list) {
         if(list != null) {
-            for (Boardgame product : list) {
+            for (String product : list) {
                 TextView tv = new TextView(view.getContext());
-                tv.setText(product.getName());
+                tv.setText(product);
                 view.addView(tv);
             }
         }

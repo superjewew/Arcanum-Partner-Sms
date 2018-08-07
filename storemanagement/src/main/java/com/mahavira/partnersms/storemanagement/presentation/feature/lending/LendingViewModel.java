@@ -74,7 +74,8 @@ public class LendingViewModel extends BaseViewModel {
 
     void attemptLentProducts(Partner partner, List<ProductSelected> products) {
         List<Boardgame> data = convertSelectedToProduct(products);
-        partner.setBorrowedGames(data);
+        List<String> borrowedProductsName = getNames(data);
+        partner.setBorrowedGames(borrowedProductsName);
         try {
             mDisposable.add(mUpdateMultipleProductUseCase.execute(data)
                     .subscribeOn(Schedulers.io())
@@ -92,6 +93,14 @@ public class LendingViewModel extends BaseViewModel {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private List<String> getNames(List<Boardgame> data) {
+        List<String> names = new ArrayList<>();
+        for (Boardgame boardgame : data) {
+            names.add(boardgame.getName());
+        }
+        return names;
     }
 
     private void onUpdateSuccess() {
