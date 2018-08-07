@@ -3,6 +3,8 @@ package com.mahavira.partnersms.inventory.presentation.addproduct;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.mahavira.partnersms.base.presentation.BaseActivity;
@@ -43,6 +45,8 @@ public class AddProductActivity extends BaseActivity<ActivityAddProductBinding, 
             }
         });
 
+        getViewModel().getAddProductClickedEvent().observe(this, __ -> addNewField());
+
         getDataBinding().setProduct(mProduct);
     }
 
@@ -59,5 +63,11 @@ public class AddProductActivity extends BaseActivity<ActivityAddProductBinding, 
             getViewModel().attemptAddProduct(mProduct);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void addNewField() {
+        LinearLayout layout = getDataBinding().componentListLayout;
+        EditText et = new EditText(this);
+        layout.addView(et);
     }
 }

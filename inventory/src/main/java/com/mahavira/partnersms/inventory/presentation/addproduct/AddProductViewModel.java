@@ -4,6 +4,7 @@ import android.arch.lifecycle.MutableLiveData;
 import android.databinding.ObservableBoolean;
 
 import com.mahavira.partnersms.base.core.Resource;
+import com.mahavira.partnersms.base.core.SingleLiveEvent;
 import com.mahavira.partnersms.base.presentation.BaseViewModel;
 import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
 import com.mahavira.partnersms.inventory.domain.usecase.AddProductUseCase;
@@ -25,6 +26,8 @@ public class AddProductViewModel extends BaseViewModel {
 
     private final MutableLiveData<Resource<Boolean>> mAddProductResult = new MutableLiveData<>();
 
+    private final SingleLiveEvent<Void> mAddProductClickedEvent = new SingleLiveEvent<>();
+
     private CompositeDisposable mDisposable = new CompositeDisposable();
 
     private AddProductUseCase mAddProductUseCase;
@@ -41,6 +44,10 @@ public class AddProductViewModel extends BaseViewModel {
 
     MutableLiveData<Resource<Boolean>> getAddProductResult() {
         return mAddProductResult;
+    }
+
+    SingleLiveEvent<Void> getAddProductClickedEvent() {
+        return mAddProductClickedEvent;
     }
 
     void attemptAddProduct(Boardgame product) {
@@ -63,5 +70,9 @@ public class AddProductViewModel extends BaseViewModel {
 
     private void onSubscribe() {
         mShowLoading.set(true);
+    }
+
+    public void addComponentField() {
+        mAddProductClickedEvent.call();
     }
 }

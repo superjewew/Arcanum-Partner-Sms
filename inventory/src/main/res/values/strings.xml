@@ -4,4 +4,5 @@
     <string name="go_to_add_product_action_title">Add Product</string>
     <string name="boardgame_name_hint">Boardgame Name</string>
     <string name="quantity_hint">Quantity</string>
+    <string name="component_name_hint">Component Name...</string>
 </resources>
