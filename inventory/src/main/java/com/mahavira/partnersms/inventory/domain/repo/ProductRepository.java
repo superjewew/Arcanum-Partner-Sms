@@ -1,6 +1,7 @@
 package com.mahavira.partnersms.inventory.domain.repo;
 
 import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
+import com.mahavira.partnersms.inventory.domain.entity.ReturnRequest;
 
 import java.util.List;
 
@@ -20,4 +21,5 @@ public interface ProductRepository {
     Single<Boardgame> getProductByName(String name);
     Completable updateProduct(Boardgame product);
     Completable updateProducts(List<Boardgame> param);
+    Single<List<ReturnRequest>> getReturnRequests();
 }

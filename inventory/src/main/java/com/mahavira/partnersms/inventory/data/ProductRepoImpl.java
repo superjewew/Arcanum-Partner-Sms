@@ -7,6 +7,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.WriteBatch;
 import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
+import com.mahavira.partnersms.inventory.domain.entity.ReturnRequest;
 import com.mahavira.partnersms.inventory.domain.repo.ProductRepository;
 
 import java.util.List;
@@ -23,6 +24,8 @@ import io.reactivex.Single;
  */
 
 public class ProductRepoImpl implements ProductRepository {
+
+    private static final String REQUEST_COLLECTION = "return_request";
 
     private static final String PRODUCT_COLLECTION = "products";
 
@@ -66,6 +69,11 @@ public class ProductRepoImpl implements ProductRepository {
             batch.set(ref, product);
         }
         return setValue(batch);
+    }
+
+    @Override
+    public Single<List<ReturnRequest>> getReturnRequests() {
+        return getValue(mInstance.collection(REQUEST_COLLECTION), ReturnRequest.class).toSingle();
     }
 
     @NonNull
