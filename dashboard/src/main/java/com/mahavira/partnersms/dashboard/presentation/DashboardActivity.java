@@ -37,6 +37,9 @@ public class DashboardActivity extends BaseActivity<ActivityDashboardBinding, Da
         getDataBinding().partnerListBtn.setOnClickListener(view -> mRouter.goToPartnerList(this));
 
         getDataBinding().addProductBtn.setOnClickListener(view -> mInventoryRouter.goToProductList(this));
+
+        getDataBinding().viewRequestBtn.setOnClickListener(view -> mInventoryRouter.goToReturnRequestList(this));
+
     }
 
 }

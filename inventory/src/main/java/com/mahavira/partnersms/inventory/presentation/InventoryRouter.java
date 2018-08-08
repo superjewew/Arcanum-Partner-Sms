@@ -10,4 +10,5 @@ import android.content.Context;
 public interface InventoryRouter {
     void goToAddProduct(Context context);
     void goToProductList(Context context);
+    void goToReturnRequestList(Context context);
 }
