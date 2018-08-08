@@ -7,6 +7,8 @@ import com.mahavira.partnersms.inventory.presentation.addproduct.AddProductActiv
 import com.mahavira.partnersms.inventory.presentation.addproduct.AddProductViewModel;
 import com.mahavira.partnersms.inventory.presentation.getproducts.ProductListActivity;
 import com.mahavira.partnersms.inventory.presentation.getproducts.ProductListViewModel;
+import com.mahavira.partnersms.inventory.presentation.requestdetail.ReturnRequestDetailActivity;
+import com.mahavira.partnersms.inventory.presentation.requestdetail.ReturnRequestDetailViewModel;
 import com.mahavira.partnersms.inventory.presentation.returnrequest.ReturnRequestListActivity;
 import com.mahavira.partnersms.inventory.presentation.returnrequest.ReturnRequestViewModel;
 
@@ -32,6 +34,9 @@ public abstract class InventoryBuilderModule {
     @ContributesAndroidInjector
     abstract ReturnRequestListActivity bindReturnRequestListActivity();
 
+    @ContributesAndroidInjector
+    abstract ReturnRequestDetailActivity bindReturnRequestDetailActivity();
+
     @Binds
     @IntoMap
     @ViewModelKey(AddProductViewModel.class)
@@ -46,4 +51,9 @@ public abstract class InventoryBuilderModule {
     @IntoMap
     @ViewModelKey(ReturnRequestViewModel.class)
     abstract ViewModel bindReturnRequestListViewModel(ReturnRequestViewModel returnRequestViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ReturnRequestDetailViewModel.class)
+    abstract ViewModel bindReturnRequestDetailViewModel(ReturnRequestDetailViewModel returnRequestDetailViewModel);
 }
