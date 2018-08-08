@@ -7,8 +7,8 @@ import io.reactivex.disposables.CompositeDisposable;
 
 public class BaseViewModel extends ViewModel {
 
-    protected final ObservableBoolean mShowLoading = new ObservableBoolean();
+    public final ObservableBoolean mShowLoading = new ObservableBoolean();
 
-    protected final CompositeDisposable mDisposable = new CompositeDisposable();
+    public final CompositeDisposable mDisposable = new CompositeDisposable();
 
 }
