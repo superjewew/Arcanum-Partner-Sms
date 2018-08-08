@@ -2,6 +2,7 @@ package com.mahavira.partnersms.inventory.presentation.returnrequest;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.widget.Toast;
 
 import com.mahavira.partnersms.base.presentation.BaseActivity;
 import com.mahavira.partnersms.inventory.BR;
@@ -28,6 +29,21 @@ public class ReturnRequestListActivity extends BaseActivity<ActivityReturnReques
 
         setupAdapter();
         setupRecyclerView(mAdapter);
+
+        getViewModel().getReturnRequestsData().observe(this, listResource -> {
+            if(listResource != null) {
+                switch (listResource.status) {
+                    case SUCCESS:
+                        mAdapter.replaceData(listResource.data);
+                        break;
+                    case ERROR:
+                        Toast.makeText(this, listResource.message, Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
+
+        getViewModel().attemptGetReturnRequest();
     }
 
     private void setupRecyclerView(ReturnRequestAdapter mAdapter) {
