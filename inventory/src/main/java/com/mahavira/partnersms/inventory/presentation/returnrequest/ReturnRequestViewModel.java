@@ -22,6 +22,8 @@ public class ReturnRequestViewModel extends BaseViewModel {
 
     private MutableLiveData<Resource<List<ReturnRequest>>> mReturnRequestsData = new MutableLiveData<>();
 
+    private MutableLiveData<ReturnRequest> mRequestClicked = new MutableLiveData<>();
+
     private GetReturnRequestsUseCase mGetReturnRequestUseCase;
 
     @Inject
@@ -36,6 +38,10 @@ public class ReturnRequestViewModel extends BaseViewModel {
 
     public MutableLiveData<Resource<List<ReturnRequest>>> getReturnRequestsData() {
         return mReturnRequestsData;
+    }
+
+    public MutableLiveData<ReturnRequest> getRequestClicked() {
+        return mRequestClicked;
     }
 
     void attemptGetReturnRequest() {
@@ -54,6 +60,10 @@ public class ReturnRequestViewModel extends BaseViewModel {
     private void onSuccess(List<ReturnRequest> requests) {
         mShowLoading.set(false);
         mReturnRequestsData.setValue(Resource.success(requests));
+    }
+
+    void setRequestClicked(ReturnRequest requestClicked) {
+        mRequestClicked.setValue(requestClicked);
     }
 
     private void onSubscribe() {

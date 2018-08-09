@@ -8,10 +8,16 @@ import com.mahavira.partnersms.base.presentation.BaseActivity;
 import com.mahavira.partnersms.inventory.BR;
 import com.mahavira.partnersms.inventory.R;
 import com.mahavira.partnersms.inventory.databinding.ActivityReturnRequestListBinding;
+import com.mahavira.partnersms.inventory.presentation.InventoryRouter;
+
+import javax.inject.Inject;
 
 public class ReturnRequestListActivity extends BaseActivity<ActivityReturnRequestListBinding, ReturnRequestViewModel> {
 
     private ReturnRequestAdapter mAdapter;
+
+    @Inject
+    InventoryRouter mRouter;
 
     @Override
     public int getViewModelBindingVariable() {
@@ -43,6 +49,12 @@ public class ReturnRequestListActivity extends BaseActivity<ActivityReturnReques
             }
         });
 
+        getViewModel().getRequestClicked().observe(this, request -> {
+            if(request != null) {
+                mRouter.goToReturnRequestDetail(this, request);
+            }
+        });
+
         getViewModel().attemptGetReturnRequest();
     }
 
@@ -52,6 +64,6 @@ public class ReturnRequestListActivity extends BaseActivity<ActivityReturnReques
     }
 
     private void setupAdapter() {
-        mAdapter = new ReturnRequestAdapter(this);
+        mAdapter = new ReturnRequestAdapter(this, getViewModel());
     }
 }

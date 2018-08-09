@@ -22,8 +22,11 @@ public class ReturnRequestAdapter extends RecyclerView.Adapter<ReturnRequestAdap
 
     private Context mContext;
 
-    ReturnRequestAdapter(Context context) {
+    private ReturnRequestViewModel mViewModel;
+
+    ReturnRequestAdapter(Context context, ReturnRequestViewModel viewModel) {
         mContext = context;
+        mViewModel = viewModel;
     }
 
     @NonNull
@@ -62,7 +65,9 @@ public class ReturnRequestAdapter extends RecyclerView.Adapter<ReturnRequestAdap
         }
 
         void bind(ReturnRequest request) {
+            ItemClickListener listener = request1 -> mViewModel.setRequestClicked(request1);
             mBinding.setRequest(request);
+            mBinding.setClickListener(listener);
             mBinding.executePendingBindings();
         }
     }
