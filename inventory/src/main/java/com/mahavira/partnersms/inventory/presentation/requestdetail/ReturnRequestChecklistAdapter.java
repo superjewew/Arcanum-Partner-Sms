@@ -17,16 +17,12 @@ import java.util.Map;
 
 public class ReturnRequestChecklistAdapter extends RecyclerView.Adapter<ReturnRequestChecklistAdapter.ChecklistViewHolder> {
 
-//    private Map<String, Boolean> mComponentMap;
-
     private ArrayList mData = new ArrayList();
 
     private Context mContext;
 
-    ReturnRequestChecklistAdapter(Context context, Map<String, Boolean> componentMap) {
+    ReturnRequestChecklistAdapter(Context context) {
         mContext = context;
-        mData.addAll(componentMap.entrySet());
-//        mComponentMap = componentMap;
     }
 
     @NonNull
@@ -41,9 +37,12 @@ public class ReturnRequestChecklistAdapter extends RecyclerView.Adapter<ReturnRe
 
     @Override
     public void onBindViewHolder(@NonNull ChecklistViewHolder holder, int position) {
-//        String component = mComponentMap.keySet().toArray()[position].toString();
         Map.Entry<String, Boolean> map = (Map.Entry) mData.get(position);
         holder.bind(map.getKey(), map.getValue());
+    }
+
+    void replaceData(Map<String, Boolean> componentMap) {
+        mData.addAll(componentMap.entrySet());
     }
 
     @Override

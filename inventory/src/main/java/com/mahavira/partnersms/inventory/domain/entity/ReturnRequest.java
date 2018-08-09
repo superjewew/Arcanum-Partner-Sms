@@ -1,11 +1,14 @@
 package com.mahavira.partnersms.inventory.domain.entity;
 
+import org.parceler.Parcel;
+
 import java.util.Map;
 
 /**
  * Created by norman on 31/07/18.
  */
 
+@Parcel
 public class ReturnRequest {
 
     String productName;
