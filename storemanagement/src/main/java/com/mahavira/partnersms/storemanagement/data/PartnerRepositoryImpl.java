@@ -96,7 +96,7 @@ public class PartnerRepositoryImpl implements PartnerRepository {
     private Maybe<Partner> getPartner(@NonNull final CollectionReference ref, String name) {
         return Maybe.create(
                 e -> ref.whereEqualTo("name", name)
-                        .limit(0)
+                        .limit(1)
                         .get()
                         .addOnCompleteListener(task -> e.onSuccess(task.getResult().toObjects(Partner.class).get(0)))
                         .addOnFailureListener(e::onError));
