@@ -1,1 +1,1 @@
-include ':app', ':base', ':login', ':dashboard', ':storemanagement', ':inventory'
+include ':app', ':base', ':login', ':dashboard', ':storemanagement', ':inventory', ':loan'
