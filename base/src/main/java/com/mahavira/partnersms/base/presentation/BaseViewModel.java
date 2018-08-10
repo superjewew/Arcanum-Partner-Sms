@@ -11,4 +11,16 @@ public class BaseViewModel extends ViewModel {
 
     public final CompositeDisposable mDisposable = new CompositeDisposable();
 
+    protected void doOnSubscribe() {
+        showLoading();
+    }
+
+    protected void showLoading() {
+        mShowLoading.set(true);
+    }
+
+    protected void hideLoading() {
+        mShowLoading.set(false);
+    }
+
 }

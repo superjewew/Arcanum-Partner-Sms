@@ -22,4 +22,6 @@ public interface ProductRepository {
     Completable updateProduct(Boardgame product);
     Completable updateProducts(List<Boardgame> param);
     Single<List<ReturnRequest>> getReturnRequests();
+    Single<ReturnRequest> getReturnRequest(String name, String from);
+    Completable deleteReturnRequest(ReturnRequest request);
 }

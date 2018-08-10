@@ -12,6 +12,7 @@ import com.mahavira.partnersms.inventory.domain.repo.ProductRepository;
 
 import java.util.List;
 
+import javax.annotation.Nonnull;
 import javax.inject.Inject;
 
 import io.reactivex.Completable;
@@ -76,6 +77,16 @@ public class ProductRepoImpl implements ProductRepository {
         return getValue(mInstance.collection(REQUEST_COLLECTION), ReturnRequest.class).toSingle();
     }
 
+    @Override
+    public Single<ReturnRequest> getReturnRequest(String name, String from) {
+        return getReturnRequestWithParam(mInstance.collection(REQUEST_COLLECTION), ReturnRequest.class, name, from).toSingle();
+    }
+
+    @Override
+    public Completable deleteReturnRequest(ReturnRequest request) {
+        return deleteValue(mInstance.collection(REQUEST_COLLECTION).document(request.getId()));
+    }
+
     @NonNull
     private Completable setValue(@NonNull final DocumentReference ref, final Object value) {
         return Completable.create(
@@ -95,5 +106,21 @@ public class ProductRepoImpl implements ProductRepository {
                 e -> ref.get()
                         .addOnCompleteListener(task -> e.onSuccess(task.getResult().toObjects(clazz)))
                         .addOnFailureListener(e::onError));
+    }
+
+    @NonNull
+    private <T> Maybe<T> getReturnRequestWithParam(@NonNull final CollectionReference ref, Class<T> clazz, String name, String from) {
+        return Maybe.create(
+                e -> ref.whereEqualTo("productName", name)
+                        .whereEqualTo("from", from)
+                        .limit(1)
+                        .get()
+                        .addOnCompleteListener(task -> e.onSuccess(task.getResult().toObjects(clazz).get(0)))
+                        .addOnFailureListener(e::onError));
+    }
+
+    @NonNull
+    private Completable deleteValue(@Nonnull final DocumentReference reference) {
+        return Completable.create(emitter -> reference.delete().addOnCompleteListener(task -> emitter.onComplete()));
     }
 }

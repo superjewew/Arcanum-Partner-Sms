@@ -55,6 +55,11 @@ public class ReturnRequestListActivity extends BaseActivity<ActivityReturnReques
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         getViewModel().attemptGetReturnRequest();
     }
 
