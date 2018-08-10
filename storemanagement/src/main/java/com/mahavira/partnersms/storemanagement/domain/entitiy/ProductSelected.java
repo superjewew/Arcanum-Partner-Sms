@@ -1,6 +1,6 @@
 package com.mahavira.partnersms.storemanagement.domain.entitiy;
 
-import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
+import com.mahavira.partnersms.base.entity.Boardgame;
 
 /**
  * Created by norman on 18/07/18.

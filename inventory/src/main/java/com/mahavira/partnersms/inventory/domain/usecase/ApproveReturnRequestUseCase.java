@@ -24,6 +24,7 @@ public class ApproveReturnRequestUseCase implements CompletableUseCase<ReturnReq
     @Override
     public Completable execute(ReturnRequest param) throws Exception {
         return mRepository.getReturnRequest(param.getProductName(), param.getFrom())
+                .flatMap(request -> mRepository.deleteBorrowedGames(request))
                 .flatMapCompletable(request -> mRepository.deleteReturnRequest(request));
     }
 }

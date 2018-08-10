@@ -6,7 +6,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.WriteBatch;
-import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
+import com.mahavira.partnersms.base.entity.Boardgame;
 import com.mahavira.partnersms.inventory.domain.entity.ReturnRequest;
 import com.mahavira.partnersms.inventory.domain.repo.ProductRepository;
 
@@ -85,6 +85,11 @@ public class ProductRepoImpl implements ProductRepository {
     @Override
     public Completable deleteReturnRequest(ReturnRequest request) {
         return deleteValue(mInstance.collection(REQUEST_COLLECTION).document(request.getId()));
+    }
+
+    @Override
+    public Single<ReturnRequest> deleteBorrowedGames(ReturnRequest request) {
+        return null;
     }
 
     @NonNull

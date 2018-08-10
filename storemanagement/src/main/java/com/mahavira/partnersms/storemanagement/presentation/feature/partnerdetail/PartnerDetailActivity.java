@@ -1,6 +1,5 @@
 package com.mahavira.partnersms.storemanagement.presentation.feature.partnerdetail;
 
-import android.content.DialogInterface;
 import android.databinding.BindingAdapter;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 
 import com.mahavira.partnersms.base.presentation.BaseActivity;
 import com.mahavira.partnersms.base.presentation.ExtraInjectable;
-import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
 import com.mahavira.partnersms.storemanagement.BR;
 import com.mahavira.partnersms.storemanagement.R;
 import com.mahavira.partnersms.storemanagement.databinding.ActivityPartnerDetailBinding;

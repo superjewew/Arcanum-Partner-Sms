@@ -12,7 +12,7 @@ import com.mahavira.partnersms.base.presentation.BaseActivity;
 import com.mahavira.partnersms.inventory.BR;
 import com.mahavira.partnersms.inventory.R;
 import com.mahavira.partnersms.inventory.databinding.ActivityAddProductBinding;
-import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
+import com.mahavira.partnersms.base.entity.Boardgame;
 
 import java.util.ArrayList;
 import java.util.List;

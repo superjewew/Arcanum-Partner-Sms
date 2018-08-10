@@ -10,7 +10,6 @@ import android.widget.Toast;
 import com.mahavira.partnersms.base.presentation.BaseActivity;
 import com.mahavira.partnersms.base.presentation.ExtraInjectable;
 import com.mahavira.partnersms.inventory.BR;
-import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
 import com.mahavira.partnersms.storemanagement.R;
 import com.mahavira.partnersms.storemanagement.databinding.ActivityLendingBinding;
 import com.mahavira.partnersms.storemanagement.domain.entitiy.Partner;
@@ -18,7 +17,6 @@ import com.mahavira.partnersms.storemanagement.domain.entitiy.ProductSelected;
 
 import org.parceler.Parcels;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LendingActivity extends BaseActivity<ActivityLendingBinding, LendingViewModel>

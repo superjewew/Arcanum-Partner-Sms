@@ -6,7 +6,7 @@
     <data>
         <variable
             name="product"
-            type="com.mahavira.partnersms.inventory.domain.entity.Boardgame"/>
+            type="com.mahavira.partnersms.base.entity.Boardgame"/>
         <variable
             name="clickListener"
             type="com.mahavira.partnersms.inventory.presentation.getproducts.ProductListAdapter.ItemClickListener"/>

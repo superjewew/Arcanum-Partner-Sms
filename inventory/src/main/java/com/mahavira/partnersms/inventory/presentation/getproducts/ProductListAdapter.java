@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.mahavira.partnersms.inventory.databinding.ItemProductListBinding;
-import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
+import com.mahavira.partnersms.base.entity.Boardgame;
 
 import java.util.ArrayList;
 import java.util.List;

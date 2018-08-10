@@ -6,7 +6,7 @@ import android.databinding.ObservableBoolean;
 import com.mahavira.partnersms.base.core.Resource;
 import com.mahavira.partnersms.base.core.SingleLiveEvent;
 import com.mahavira.partnersms.base.presentation.BaseViewModel;
-import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
+import com.mahavira.partnersms.base.entity.Boardgame;
 import com.mahavira.partnersms.inventory.domain.usecase.AddProductUseCase;
 
 import javax.inject.Inject;

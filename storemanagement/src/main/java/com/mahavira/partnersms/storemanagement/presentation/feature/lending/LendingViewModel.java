@@ -5,7 +5,7 @@ import android.databinding.ObservableBoolean;
 
 import com.mahavira.partnersms.base.core.Resource;
 import com.mahavira.partnersms.base.presentation.BaseViewModel;
-import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
+import com.mahavira.partnersms.base.entity.Boardgame;
 import com.mahavira.partnersms.inventory.domain.usecase.GetProductsUseCase;
 import com.mahavira.partnersms.inventory.domain.usecase.UpdateMultipleProductUseCase;
 import com.mahavira.partnersms.storemanagement.domain.entitiy.Partner;

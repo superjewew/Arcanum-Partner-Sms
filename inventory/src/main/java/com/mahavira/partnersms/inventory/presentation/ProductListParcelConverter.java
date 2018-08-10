@@ -2,7 +2,7 @@ package com.mahavira.partnersms.inventory.presentation;
 
 import android.os.Parcel;
 
-import com.mahavira.partnersms.inventory.domain.entity.Boardgame;
+import com.mahavira.partnersms.base.entity.Boardgame;
 
 import org.parceler.Parcels;
 import org.parceler.converter.ArrayListParcelConverter;
