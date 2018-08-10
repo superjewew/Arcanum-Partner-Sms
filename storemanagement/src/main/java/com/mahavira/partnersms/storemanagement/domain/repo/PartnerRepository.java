@@ -6,6 +6,7 @@ import java.util.List;
 
 import io.reactivex.Completable;
 import io.reactivex.Single;
+import io.reactivex.SingleSource;
 
 /**
  * Created by norman on 15/07/18.
@@ -18,4 +19,5 @@ public interface PartnerRepository {
     Single<List<Partner>> getPartner();
     Completable deletePartner(Partner partner);
     Completable updatePartner(Partner partner);
+    Single<Partner> getPartnerByName(String from);
 }

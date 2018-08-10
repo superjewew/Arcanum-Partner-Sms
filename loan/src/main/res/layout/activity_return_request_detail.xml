@@ -6,17 +6,17 @@
     <data>
         <variable
             name="request"
-            type="com.mahavira.partnersms.inventory.domain.entity.ReturnRequest"/>
+            type="com.mahavira.partnersms.base.entity.ReturnRequest"/>
         <variable
             name="viewModel"
-            type="com.mahavira.partnersms.inventory.presentation.requestdetail.ReturnRequestDetailViewModel"/>
+            type="com.mahavira.partnersms.loan.presentation.requestdetail.ReturnRequestDetailViewModel"/>
         <import type="android.view.View"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.mahavira.partnersms.inventory.presentation.requestdetail.ReturnRequestDetailActivity">
+        tools:context="com.mahavira.partnersms.loan.presentation.requestdetail.ReturnRequestDetailActivity">
 
         <ScrollView
             android:layout_width="0dp"

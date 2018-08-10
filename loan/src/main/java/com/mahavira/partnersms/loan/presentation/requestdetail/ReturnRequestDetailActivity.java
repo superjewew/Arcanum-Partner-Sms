@@ -1,4 +1,4 @@
-package com.mahavira.partnersms.inventory.presentation.requestdetail;
+package com.mahavira.partnersms.loan.presentation.requestdetail;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,10 +7,10 @@ import android.widget.Toast;
 
 import com.mahavira.partnersms.base.presentation.BaseActivity;
 import com.mahavira.partnersms.base.presentation.ExtraInjectable;
-import com.mahavira.partnersms.inventory.BR;
-import com.mahavira.partnersms.inventory.R;
-import com.mahavira.partnersms.inventory.databinding.ActivityReturnRequestDetailBinding;
-import com.mahavira.partnersms.inventory.domain.entity.ReturnRequest;
+import com.mahavira.partnersms.base.entity.ReturnRequest;
+import com.mahavira.partnersms.loan.BR;
+import com.mahavira.partnersms.loan.R;
+import com.mahavira.partnersms.loan.databinding.ActivityReturnRequestDetailBinding;
 
 import org.parceler.Parcels;
 

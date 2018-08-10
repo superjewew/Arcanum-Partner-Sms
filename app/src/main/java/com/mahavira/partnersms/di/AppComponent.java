@@ -6,6 +6,7 @@ import android.app.Application;
 import com.mahavira.partnersms.BaseApplication;
 import com.mahavira.partnersms.dashboard.di.DashboardModule;
 import com.mahavira.partnersms.inventory.di.InventoryModule;
+import com.mahavira.partnersms.loan.di.LoanModule;
 import com.mahavira.partnersms.login.di.LoginModule;
 
 import javax.inject.Singleton;
@@ -30,7 +31,8 @@ import com.mahavira.partnersms.storemanagement.di.StoreManagementModule;
         LoginModule.class,
         DashboardModule.class,
         StoreManagementModule.class,
-        InventoryModule.class
+        InventoryModule.class,
+        LoanModule.class
 })
 public interface AppComponent {
 

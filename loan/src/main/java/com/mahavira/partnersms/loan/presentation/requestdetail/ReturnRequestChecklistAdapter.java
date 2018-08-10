@@ -1,4 +1,4 @@
-package com.mahavira.partnersms.inventory.presentation.requestdetail;
+package com.mahavira.partnersms.loan.presentation.requestdetail;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

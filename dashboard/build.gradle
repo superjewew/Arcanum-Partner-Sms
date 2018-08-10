@@ -77,4 +77,5 @@ dependencies {
     implementation project(path: ':base')
     implementation project(path: ':storemanagement')
     implementation project(path: ':inventory')
+    compile project(path: ':loan')
 }

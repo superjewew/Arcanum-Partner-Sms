@@ -1,4 +1,4 @@
-package com.mahavira.partnersms.inventory.presentation.returnrequest;
+package com.mahavira.partnersms.loan.presentation.returnrequest;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -6,8 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.mahavira.partnersms.inventory.databinding.ItemRequestListBinding;
-import com.mahavira.partnersms.inventory.domain.entity.ReturnRequest;
+import com.mahavira.partnersms.base.entity.ReturnRequest;
+import com.mahavira.partnersms.loan.databinding.ItemRequestListBinding;
 
 import java.util.ArrayList;
 import java.util.List;

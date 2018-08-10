@@ -1,10 +1,10 @@
-package com.mahavira.partnersms.inventory.presentation.returnrequest;
+package com.mahavira.partnersms.loan.presentation.returnrequest;
 
 import android.arch.lifecycle.MutableLiveData;
 
 import com.mahavira.partnersms.base.core.Resource;
 import com.mahavira.partnersms.base.presentation.BaseViewModel;
-import com.mahavira.partnersms.inventory.domain.entity.ReturnRequest;
+import com.mahavira.partnersms.base.entity.ReturnRequest;
 import com.mahavira.partnersms.inventory.domain.usecase.GetReturnRequestsUseCase;
 
 import java.util.List;

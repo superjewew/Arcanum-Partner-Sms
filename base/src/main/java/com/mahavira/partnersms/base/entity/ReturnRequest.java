@@ -1,4 +1,4 @@
-package com.mahavira.partnersms.inventory.domain.entity;
+package com.mahavira.partnersms.base.entity;
 
 import org.parceler.Parcel;
 

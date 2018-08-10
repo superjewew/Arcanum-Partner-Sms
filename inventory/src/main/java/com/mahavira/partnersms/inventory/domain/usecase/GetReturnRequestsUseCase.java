@@ -1,7 +1,7 @@
 package com.mahavira.partnersms.inventory.domain.usecase;
 
 import com.mahavira.partnersms.base.core.BaseUseCase;
-import com.mahavira.partnersms.inventory.domain.entity.ReturnRequest;
+import com.mahavira.partnersms.base.entity.ReturnRequest;
 import com.mahavira.partnersms.inventory.domain.repo.ProductRepository;
 
 import java.util.List;

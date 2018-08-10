@@ -1,12 +1,12 @@
-package com.mahavira.partnersms.inventory.presentation.requestdetail;
+package com.mahavira.partnersms.loan.presentation.requestdetail;
 
 import android.arch.lifecycle.MutableLiveData;
 
 import com.mahavira.partnersms.base.core.Resource;
 import com.mahavira.partnersms.base.core.SingleLiveEvent;
 import com.mahavira.partnersms.base.presentation.BaseViewModel;
-import com.mahavira.partnersms.inventory.domain.entity.ReturnRequest;
-import com.mahavira.partnersms.inventory.domain.usecase.ApproveReturnRequestUseCase;
+import com.mahavira.partnersms.base.entity.ReturnRequest;
+import com.mahavira.partnersms.loan.domain.usecase.ApproveReturnRequestUseCase;
 
 import javax.inject.Inject;
 

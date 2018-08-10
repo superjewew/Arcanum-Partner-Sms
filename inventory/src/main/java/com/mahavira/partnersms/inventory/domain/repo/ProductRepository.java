@@ -1,7 +1,7 @@
 package com.mahavira.partnersms.inventory.domain.repo;
 
 import com.mahavira.partnersms.base.entity.Boardgame;
-import com.mahavira.partnersms.inventory.domain.entity.ReturnRequest;
+import com.mahavira.partnersms.base.entity.ReturnRequest;
 
 import java.util.List;
 
@@ -24,5 +24,4 @@ public interface ProductRepository {
     Single<List<ReturnRequest>> getReturnRequests();
     Single<ReturnRequest> getReturnRequest(String name, String from);
     Completable deleteReturnRequest(ReturnRequest request);
-    Single<ReturnRequest> deleteBorrowedGames(ReturnRequest request);
 }

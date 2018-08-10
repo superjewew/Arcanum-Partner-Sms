@@ -6,10 +6,10 @@
     <data>
         <variable
             name="request"
-            type="com.mahavira.partnersms.inventory.domain.entity.ReturnRequest"/>
+            type="com.mahavira.partnersms.base.entity.ReturnRequest"/>
         <variable
             name="clickListener"
-            type="com.mahavira.partnersms.inventory.presentation.returnrequest.ReturnRequestAdapter.ItemClickListener"/>
+            type="com.mahavira.partnersms.loan.presentation.returnrequest.ReturnRequestAdapter.ItemClickListener"/>
     </data>
 
     <android.support.constraint.ConstraintLayout

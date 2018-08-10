@@ -59,6 +59,11 @@ public class PartnerRepositoryImpl implements PartnerRepository {
         return setValue(mInstance.collection(PARTNER_COLLECTION).document(partner.getEmail()), partner);
     }
 
+    @Override
+    public Single<Partner> getPartnerByName(String from) {
+        return getPartner(mInstance.collection(PARTNER_COLLECTION), from).toSingle();
+    }
+
     @NonNull
     private Completable createAuth(@NonNull FirebaseAuth auth, Partner partner) {
         return Completable.create(e -> auth.createUserWithEmailAndPassword(partner.getEmail(), "123456")
@@ -84,6 +89,16 @@ public class PartnerRepositoryImpl implements PartnerRepository {
         return Maybe.create(
                 e -> ref.get()
                         .addOnCompleteListener(task -> e.onSuccess(task.getResult().toObjects(clazz)))
+                        .addOnFailureListener(e::onError));
+    }
+
+    @NonNull
+    private Maybe<Partner> getPartner(@NonNull final CollectionReference ref, String name) {
+        return Maybe.create(
+                e -> ref.whereEqualTo("name", name)
+                        .limit(0)
+                        .get()
+                        .addOnCompleteListener(task -> e.onSuccess(task.getResult().toObjects(Partner.class).get(0)))
                         .addOnFailureListener(e::onError));
     }
 

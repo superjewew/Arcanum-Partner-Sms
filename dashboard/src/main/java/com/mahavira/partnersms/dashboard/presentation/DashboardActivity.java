@@ -8,6 +8,7 @@ import com.mahavira.partnersms.base.presentation.BaseActivity;
 import com.mahavira.partnersms.dashboard.R;
 import com.mahavira.partnersms.dashboard.databinding.ActivityDashboardBinding;
 import com.mahavira.partnersms.inventory.presentation.InventoryRouter;
+import com.mahavira.partnersms.loan.presentation.LoanRouter;
 import com.mahavira.partnersms.storemanagement.presentation.StoreManagementRouter;
 
 import javax.inject.Inject;
@@ -19,6 +20,9 @@ public class DashboardActivity extends BaseActivity<ActivityDashboardBinding, Da
 
     @Inject
     InventoryRouter mInventoryRouter;
+
+    @Inject
+    LoanRouter mLoanRouter;
 
     @Override
     public int getViewModelBindingVariable() {
@@ -38,7 +42,7 @@ public class DashboardActivity extends BaseActivity<ActivityDashboardBinding, Da
 
         getDataBinding().addProductBtn.setOnClickListener(view -> mInventoryRouter.goToProductList(this));
 
-        getDataBinding().viewRequestBtn.setOnClickListener(view -> mInventoryRouter.goToReturnRequestList(this));
+        getDataBinding().viewRequestBtn.setOnClickListener(view -> mLoanRouter.goToReturnRequestList(this));
 
     }
 

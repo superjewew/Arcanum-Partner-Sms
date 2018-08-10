@@ -1,2 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mahavira.partnersms.loan" />
+    package="com.mahavira.partnersms.loan" >
+
+    <application>
+        <activity
+            android:name="com.mahavira.partnersms.loan.presentation.returnrequest.ReturnRequestListActivity"
+            android:label="Return Request"/>
+        <activity
+            android:name="com.mahavira.partnersms.loan.presentation.requestdetail.ReturnRequestDetailActivity"
+            android:label="Request Detail"/>
+    </application>
+
+</manifest>

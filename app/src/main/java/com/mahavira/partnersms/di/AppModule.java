@@ -7,9 +7,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mahavira.partnersms.dashboard.presentation.DashboardRouter;
 import com.mahavira.partnersms.inventory.presentation.InventoryRouter;
+import com.mahavira.partnersms.loan.presentation.LoanRouter;
 import com.mahavira.partnersms.login.LoginRouter;
 import com.mahavira.partnersms.router.DashboardRouterImpl;
 import com.mahavira.partnersms.router.InventoryRouterImpl;
+import com.mahavira.partnersms.router.LoanRouterImpl;
 import com.mahavira.partnersms.router.LoginRouterImpl;
 import com.mahavira.partnersms.router.StoreManagementRouterImpl;
 import com.mahavira.partnersms.storemanagement.presentation.StoreManagementRouter;
@@ -57,6 +59,11 @@ class AppModule {
     @Provides
     InventoryRouter provideInventoryRouter() {
         return new InventoryRouterImpl();
+    }
+
+    @Provides
+    LoanRouter provideLoanRouter() {
+        return new LoanRouterImpl();
     }
 
     @Singleton

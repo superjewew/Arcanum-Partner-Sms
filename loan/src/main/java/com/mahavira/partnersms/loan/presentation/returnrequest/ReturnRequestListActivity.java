@@ -1,14 +1,14 @@
-package com.mahavira.partnersms.inventory.presentation.returnrequest;
+package com.mahavira.partnersms.loan.presentation.returnrequest;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.widget.Toast;
 
 import com.mahavira.partnersms.base.presentation.BaseActivity;
-import com.mahavira.partnersms.inventory.BR;
-import com.mahavira.partnersms.inventory.R;
-import com.mahavira.partnersms.inventory.databinding.ActivityReturnRequestListBinding;
-import com.mahavira.partnersms.inventory.presentation.InventoryRouter;
+import com.mahavira.partnersms.loan.BR;
+import com.mahavira.partnersms.loan.R;
+import com.mahavira.partnersms.loan.databinding.ActivityReturnRequestListBinding;
+import com.mahavira.partnersms.loan.presentation.LoanRouter;
 
 import javax.inject.Inject;
 
@@ -17,7 +17,7 @@ public class ReturnRequestListActivity extends BaseActivity<ActivityReturnReques
     private ReturnRequestAdapter mAdapter;
 
     @Inject
-    InventoryRouter mRouter;
+    LoanRouter mRouter;
 
     @Override
     public int getViewModelBindingVariable() {
