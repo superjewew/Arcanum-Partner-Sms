@@ -42,9 +42,11 @@ public class ReturnRequestDetailActivity extends BaseActivity<ActivityReturnRequ
         setupAdapter();
         setupRecyclerView(mAdapter);
 
-        getViewModel().getApproveClickedEvent().observe(this, approveClicked -> {
-            getViewModel().attemptApprove(mRequest);
-        });
+        getViewModel().getApproveClickedEvent().observe(this, approveClicked ->
+                getViewModel().attemptApprove(mRequest));
+
+        getViewModel().getRejectClickedEvent().observe(this, __ ->
+                getViewModel().attemptReject(mRequest));
 
         getViewModel().getApproveData().observe(this, approveSuccess -> {
             if(approveSuccess != null) {
@@ -55,6 +57,20 @@ public class ReturnRequestDetailActivity extends BaseActivity<ActivityReturnRequ
                         break;
                     case ERROR:
                         Toast.makeText(this, approveSuccess.message, Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
+
+        getViewModel().getRejectData().observe(this, response -> {
+            if(response != null) {
+                switch (response.status) {
+                    case SUCCESS:
+                        Toast.makeText(this, "Request Rejected", Toast.LENGTH_SHORT).show();
+                        this.finish();
+                        break;
+                    case ERROR:
+                        Toast.makeText(this, response.message, Toast.LENGTH_SHORT).show();
                         break;
                 }
             }

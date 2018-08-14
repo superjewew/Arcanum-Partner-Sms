@@ -7,6 +7,7 @@ import com.mahavira.partnersms.base.core.SingleLiveEvent;
 import com.mahavira.partnersms.base.presentation.BaseViewModel;
 import com.mahavira.partnersms.base.entity.ReturnRequest;
 import com.mahavira.partnersms.loan.domain.usecase.ApproveReturnRequestUseCase;
+import com.mahavira.partnersms.loan.domain.usecase.RejectReturnRequestUseCase;
 
 import javax.inject.Inject;
 
@@ -22,15 +23,23 @@ public class ReturnRequestDetailViewModel extends BaseViewModel {
 
     private final MutableLiveData<Resource<Boolean>> mApproveData = new MutableLiveData<>();
 
+    private final MutableLiveData<Resource<Boolean>> mRejectData = new MutableLiveData<>();
+
     private final SingleLiveEvent<Void> mApproveClickedEvent = new SingleLiveEvent<>();
+
+    private final SingleLiveEvent<Void> mRejectClickedEvent = new SingleLiveEvent<>();
 
     private final CompositeDisposable mDisposables = new CompositeDisposable();
 
     private ApproveReturnRequestUseCase mApproveUseCase;
 
+    private RejectReturnRequestUseCase mRejectUseCase;
+
     @Inject
-    ReturnRequestDetailViewModel(ApproveReturnRequestUseCase approveReturnRequestUseCase) {
+    ReturnRequestDetailViewModel(ApproveReturnRequestUseCase approveReturnRequestUseCase,
+                                 RejectReturnRequestUseCase rejectReturnRequestUseCase) {
         mApproveUseCase = approveReturnRequestUseCase;
+        mRejectUseCase = rejectReturnRequestUseCase;
     }
 
     @Override
@@ -42,8 +51,16 @@ public class ReturnRequestDetailViewModel extends BaseViewModel {
         return mApproveData;
     }
 
+    public MutableLiveData<Resource<Boolean>> getRejectData() {
+        return mRejectData;
+    }
+
     public SingleLiveEvent<Void> getApproveClickedEvent() {
         return mApproveClickedEvent;
+    }
+
+    public SingleLiveEvent<Void> getRejectClickedEvent() {
+        return mRejectClickedEvent;
     }
 
     void attemptApprove(ReturnRequest request) {
@@ -56,6 +73,26 @@ public class ReturnRequestDetailViewModel extends BaseViewModel {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    void attemptReject(ReturnRequest mRequest) {
+        try {
+            mRejectUseCase.execute(mRequest)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doOnSubscribe(__ -> doOnSubscribe())
+                    .subscribe(this::onRejectSuccess, this::onRejectFailed);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void onRejectSuccess() {
+        mRejectData.setValue(Resource.success(true));
+    }
+
+    private void onRejectFailed(Throwable throwable) {
+        mRejectData.setValue(Resource.error(null, throwable.getLocalizedMessage(), false));
     }
 
     private void onApproveFailed(Throwable throwable) {
@@ -72,4 +109,7 @@ public class ReturnRequestDetailViewModel extends BaseViewModel {
         mApproveClickedEvent.call();
     }
 
+    public void reject() {
+        mRejectClickedEvent.call();
+    }
 }
