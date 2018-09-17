@@ -13,139 +13,155 @@
         <import type="android.view.View"/>
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-        tools:context="com.mahavira.partnersms.inventory.presentation.addproduct.AddProductActivity">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/product_name_et"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@={product.name}"
-            android:hint="@string/boardgame_name_hint"/>
-
-        <EditText
-            android:id="@+id/product_quantity_et"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/quantity_hint"
-            android:text="@={`` + product.quantity}"
-            app:layout_constraintTop_toBottomOf="@+id/product_name_et"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-
-        <TextView
-            android:id="@+id/game_detail_caption_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/product_quantity_et"
-            android:text="Game Details"/>
-
-        <EditText
-            android:id="@+id/game_detail_play_time_et"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@={product.gameTime}"
-            android:hint="Play Time"
-            android:maxLength="10"
-            app:layout_constraintTop_toBottomOf="@id/game_detail_caption_tv"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@id/game_detail_play_time_et"
-            app:layout_constraintBaseline_toBaselineOf="@id/game_detail_play_time_et"
-            android:text="Minutes"/>
-
-        <EditText
-            android:id="@+id/game_detail_player_count_from_et"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="2"
-            android:text="@={product.numPlayersFrom}"
-            android:hint="From"
-            app:layout_constraintTop_toBottomOf="@id/game_detail_play_time_et"/>
-
-        <TextView
-            android:id="@+id/game_detail_player_count_divider"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="to"
-            app:layout_constraintLeft_toRightOf="@id/game_detail_player_count_from_et"
-            app:layout_constraintBaseline_toBaselineOf="@id/game_detail_player_count_from_et"/>
-
-        <EditText
-            android:id="@+id/game_detail_player_count_to_et"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="2"
-            android:text="@={product.numPlayersTo}"
-            android:hint="To"
-            app:layout_constraintTop_toBottomOf="@id/game_detail_play_time_et"
-            app:layout_constraintLeft_toRightOf="@id/game_detail_player_count_divider"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Players"
-            app:layout_constraintLeft_toRightOf="@id/game_detail_player_count_to_et"
-            app:layout_constraintBaseline_toBaselineOf="@id/game_detail_player_count_from_et"/>
-
-        <EditText
-            android:id="@+id/game_detail_player_age_et"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@={product.playerAge}"
-            android:hint="Age"
-            android:maxLength="10"
-            app:layout_constraintTop_toBottomOf="@id/game_detail_player_count_from_et"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@id/game_detail_player_age_et"
-            app:layout_constraintBaseline_toBaselineOf="@id/game_detail_player_age_et"
-            android:text="Years"/>
-
-        <EditText
-            android:id="@+id/game_detail_release_year_et"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@={product.releaseYear}"
-            android:hint="Year"
-            android:maxLength="10"
-            app:layout_constraintTop_toBottomOf="@id/game_detail_player_age_et"/>
-
-        <LinearLayout
-            android:id="@+id/component_list_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/game_detail_release_year_et">
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            tools:context="com.mahavira.partnersms.inventory.presentation.addproduct.AddProductActivity">
 
             <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/component_name_hint"/>
-        </LinearLayout>
+                android:id="@+id/product_name_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={product.name}"
+                android:hint="@string/boardgame_name_hint"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/component_list_layout"
-            android:text="Add Component"
-            android:onClick="@{() -> viewModel.addComponentField()}"/>
+            <EditText
+                android:id="@+id/product_quantity_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/quantity_hint"
+                android:text="@={`` + product.quantity}"
+                app:layout_constraintTop_toBottomOf="@+id/product_name_et"
+                app:layout_constraintLeft_toLeftOf="parent"/>
 
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:indeterminate="true"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:visibility="@{viewModel.mShowLoading ? View.VISIBLE : View.INVISIBLE}"/>
+            <TextView
+                android:id="@+id/game_detail_caption_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/product_quantity_et"
+                android:text="Game Details"/>
 
-    </android.support.constraint.ConstraintLayout>
+            <EditText
+                android:id="@+id/game_detail_play_time_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@={product.gameTime}"
+                android:hint="Play Time"
+                android:maxLength="10"
+                app:layout_constraintTop_toBottomOf="@id/game_detail_caption_tv"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/game_detail_play_time_et"
+                app:layout_constraintBaseline_toBaselineOf="@id/game_detail_play_time_et"
+                android:text="Minutes"/>
+
+            <EditText
+                android:id="@+id/game_detail_player_count_from_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLength="2"
+                android:text="@={product.numPlayersFrom}"
+                android:hint="From"
+                app:layout_constraintTop_toBottomOf="@id/game_detail_play_time_et"/>
+
+            <TextView
+                android:id="@+id/game_detail_player_count_divider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="to"
+                app:layout_constraintLeft_toRightOf="@id/game_detail_player_count_from_et"
+                app:layout_constraintBaseline_toBaselineOf="@id/game_detail_player_count_from_et"/>
+
+            <EditText
+                android:id="@+id/game_detail_player_count_to_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLength="2"
+                android:text="@={product.numPlayersTo}"
+                android:hint="To"
+                app:layout_constraintTop_toBottomOf="@id/game_detail_play_time_et"
+                app:layout_constraintLeft_toRightOf="@id/game_detail_player_count_divider"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Players"
+                app:layout_constraintLeft_toRightOf="@id/game_detail_player_count_to_et"
+                app:layout_constraintBaseline_toBaselineOf="@id/game_detail_player_count_from_et"/>
+
+            <EditText
+                android:id="@+id/game_detail_player_age_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@={product.playerAge}"
+                android:hint="Age"
+                android:maxLength="10"
+                app:layout_constraintTop_toBottomOf="@id/game_detail_player_count_from_et"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/game_detail_player_age_et"
+                app:layout_constraintBaseline_toBaselineOf="@id/game_detail_player_age_et"
+                android:text="Years"/>
+
+            <EditText
+                android:id="@+id/game_detail_release_year_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@={product.releaseYear}"
+                android:hint="Year"
+                android:maxLength="10"
+                app:layout_constraintTop_toBottomOf="@id/game_detail_player_age_et"/>
+
+            <EditText
+                android:id="@+id/game_detail_how_to_play_url_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={product.howToPlayUrl}"
+                android:hint="How to play YouTube URL"
+                android:inputType="textUri"
+                app:layout_constraintTop_toBottomOf="@id/game_detail_release_year_et"/>
+
+            <LinearLayout
+                android:id="@+id/component_list_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/game_detail_how_to_play_url_et">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/component_name_hint"/>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/component_list_layout"
+                android:text="Add Component"
+                android:onClick="@{() -> viewModel.addComponentField()}"/>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:visibility="@{viewModel.mShowLoading ? View.VISIBLE : View.INVISIBLE}"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
 </layout>

@@ -24,6 +24,7 @@ public class Boardgame extends BaseObservable {
     String gameTime;
     String releaseYear;
     String playerAge;
+    String howToPlayUrl;
 
     public String getName() {
         return name;
@@ -109,5 +110,15 @@ public class Boardgame extends BaseObservable {
     public void setPlayerAge(final String playerAge) {
         this.playerAge = playerAge;
         notifyPropertyChanged(BR.playerAge);
+    }
+
+    @Bindable
+    public String getHowToPlayUrl() {
+        return howToPlayUrl;
+    }
+
+    public void setHowToPlayUrl(final String howToPlayUrl) {
+        this.howToPlayUrl = howToPlayUrl;
+        notifyPropertyChanged(BR.howToPlayUrl);
     }
 }
