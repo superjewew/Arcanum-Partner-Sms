@@ -16,6 +16,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="16dp"
         tools:context="com.mahavira.partnersms.inventory.presentation.addproduct.AddProductActivity">
 
         <EditText
@@ -30,16 +31,98 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/quantity_hint"
-            android:text="@{Integer.toString(product.quantity)}"
+            android:text="@={`` + product.quantity}"
             app:layout_constraintTop_toBottomOf="@+id/product_name_et"
             app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
+            android:id="@+id/game_detail_caption_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/product_quantity_et"
+            android:text="Game Details"/>
+
+        <EditText
+            android:id="@+id/game_detail_play_time_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={product.gameTime}"
+            android:hint="Play Time"
+            android:maxLength="10"
+            app:layout_constraintTop_toBottomOf="@id/game_detail_caption_tv"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/game_detail_play_time_et"
+            app:layout_constraintBaseline_toBaselineOf="@id/game_detail_play_time_et"
+            android:text="Minutes"/>
+
+        <EditText
+            android:id="@+id/game_detail_player_count_from_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="2"
+            android:text="@={product.numPlayersFrom}"
+            android:hint="From"
+            app:layout_constraintTop_toBottomOf="@id/game_detail_play_time_et"/>
+
+        <TextView
+            android:id="@+id/game_detail_player_count_divider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="to"
+            app:layout_constraintLeft_toRightOf="@id/game_detail_player_count_from_et"
+            app:layout_constraintBaseline_toBaselineOf="@id/game_detail_player_count_from_et"/>
+
+        <EditText
+            android:id="@+id/game_detail_player_count_to_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="2"
+            android:text="@={product.numPlayersTo}"
+            android:hint="To"
+            app:layout_constraintTop_toBottomOf="@id/game_detail_play_time_et"
+            app:layout_constraintLeft_toRightOf="@id/game_detail_player_count_divider"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Players"
+            app:layout_constraintLeft_toRightOf="@id/game_detail_player_count_to_et"
+            app:layout_constraintBaseline_toBaselineOf="@id/game_detail_player_count_from_et"/>
+
+        <EditText
+            android:id="@+id/game_detail_player_age_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={product.playerAge}"
+            android:hint="Age"
+            android:maxLength="10"
+            app:layout_constraintTop_toBottomOf="@id/game_detail_player_count_from_et"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/game_detail_player_age_et"
+            app:layout_constraintBaseline_toBaselineOf="@id/game_detail_player_age_et"
+            android:text="Years"/>
+
+        <EditText
+            android:id="@+id/game_detail_release_year_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={product.releaseYear}"
+            android:hint="Year"
+            android:maxLength="10"
+            app:layout_constraintTop_toBottomOf="@id/game_detail_player_age_et"/>
 
         <LinearLayout
             android:id="@+id/component_list_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/product_quantity_et">
+            app:layout_constraintTop_toBottomOf="@id/game_detail_release_year_et">
 
             <EditText
             android:layout_width="match_parent"
