@@ -136,13 +136,20 @@
                 android:inputType="textUri"
                 app:layout_constraintTop_toBottomOf="@id/game_detail_release_year_et"/>
 
+            <TextView
+                android:id="@+id/game_detail_components"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/game_detail_how_to_play_url_et"
+                android:text="Components"/>
+
             <LinearLayout
                 android:id="@+id/component_list_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:components="@{product.components}"
-                app:layout_constraintTop_toBottomOf="@id/game_detail_how_to_play_url_et">
+                app:layout_constraintTop_toBottomOf="@id/game_detail_components">
 
             </LinearLayout>
 
