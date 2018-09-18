@@ -26,6 +26,8 @@ public class ProductListViewModel extends BaseViewModel {
 
     public final ObservableBoolean mShowLoading = new ObservableBoolean();
 
+    private final MutableLiveData<Boardgame> mProductClicked = new MutableLiveData<>();
+
     private final MutableLiveData<Resource<List<Boardgame>>> mProductListData = new MutableLiveData<>();
 
     private final MutableLiveData<Resource<Boolean>> mUpdateProductData = new MutableLiveData<>();
@@ -44,6 +46,10 @@ public class ProductListViewModel extends BaseViewModel {
         mUpdateProductUseCase = updateProductUseCase;
     }
 
+    public void setProductClicked(final Boardgame product) {
+        mProductClicked.setValue(product);
+    }
+
     @Override
     protected void onCleared() {
         mDisposable.clear();
@@ -55,6 +61,10 @@ public class ProductListViewModel extends BaseViewModel {
 
     MutableLiveData<Boardgame> getProductQuantityChanged() {
         return mProductQuantityChanged;
+    }
+
+    public MutableLiveData<Boardgame> getProductClicked() {
+        return mProductClicked;
     }
 
     void attemptGetProducts() {

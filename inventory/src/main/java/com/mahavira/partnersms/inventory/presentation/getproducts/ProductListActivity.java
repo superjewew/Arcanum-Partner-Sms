@@ -51,6 +51,12 @@ public class ProductListActivity extends BaseActivity<ActivityProductListBinding
             }
         });
 
+        getViewModel().getProductClicked().observe(this, boardgame -> {
+            if(boardgame != null) {
+                mRouter.goToEditProduct(this, boardgame);
+            }
+        });
+
         getViewModel().getProductQuantityChanged().observe(this, boardgame -> getViewModel().updateProduct(boardgame));
 
     }

@@ -69,7 +69,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             ItemClickListener clickListener = new ItemClickListener() {
                 @Override
                 public void onItemClicked(Boardgame product) {
-
+                    mViewModel.setProductClicked(product);
                 }
 
                 @Override
