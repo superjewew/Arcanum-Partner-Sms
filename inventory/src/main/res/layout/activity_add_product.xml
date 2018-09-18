@@ -36,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/quantity_hint"
                 android:text="@={`` + product.quantity}"
+                android:inputType="number"
                 app:layout_constraintTop_toBottomOf="@+id/product_name_et"
                 app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -53,6 +54,7 @@
                 android:text="@={product.gameTime}"
                 android:hint="Play Time"
                 android:maxLength="10"
+                android:inputType="number"
                 app:layout_constraintTop_toBottomOf="@id/game_detail_caption_tv"/>
 
             <TextView
@@ -69,6 +71,7 @@
                 android:maxLength="2"
                 android:text="@={product.numPlayersFrom}"
                 android:hint="From"
+                android:inputType="number"
                 app:layout_constraintTop_toBottomOf="@id/game_detail_play_time_et"/>
 
             <TextView
@@ -86,6 +89,7 @@
                 android:maxLength="2"
                 android:text="@={product.numPlayersTo}"
                 android:hint="To"
+                android:inputType="number"
                 app:layout_constraintTop_toBottomOf="@id/game_detail_play_time_et"
                 app:layout_constraintLeft_toRightOf="@id/game_detail_player_count_divider"/>
 
@@ -103,6 +107,7 @@
                 android:text="@={product.playerAge}"
                 android:hint="Age"
                 android:maxLength="10"
+                android:inputType="number"
                 app:layout_constraintTop_toBottomOf="@id/game_detail_player_count_from_et"/>
 
             <TextView
@@ -119,6 +124,7 @@
                 android:text="@={product.releaseYear}"
                 android:hint="Year"
                 android:maxLength="10"
+                android:inputType="number"
                 app:layout_constraintTop_toBottomOf="@id/game_detail_player_age_et"/>
 
             <EditText
