@@ -1,6 +1,7 @@
 package com.mahavira.partnersms.dashboard.presentation;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -37,6 +38,13 @@ public class DashboardActivity extends BaseActivity<ActivityDashboardBinding, Da
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(false);
+            actionBar.setDisplayHomeAsUpEnabled(false);
+            actionBar.setDisplayShowHomeEnabled(false);
+        }
 
         getDataBinding().partnerListBtn.setOnClickListener(view -> mRouter.goToPartnerList(this));
 

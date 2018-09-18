@@ -1,6 +1,7 @@
 package com.mahavira.partnersms.login.presentation;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -32,6 +33,13 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(false);
+            actionBar.setDisplayHomeAsUpEnabled(false);
+            actionBar.setDisplayShowHomeEnabled(false);
+        }
 
         getViewModel().getLoginResponse().observe(this, authResultResource -> {
             if (authResultResource != null) {

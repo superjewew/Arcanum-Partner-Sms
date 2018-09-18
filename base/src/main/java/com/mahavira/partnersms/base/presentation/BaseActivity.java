@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
+import android.view.MenuItem;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
@@ -83,12 +85,27 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
 
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         if (this instanceof ExtraInjectable && getIntent().getExtras() != null) {
             ((ExtraInjectable) this).injectExtras(getIntent().getExtras());
         }
 
         provideViewModel();
         performDataBinding();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return false;
     }
 
     @Override
