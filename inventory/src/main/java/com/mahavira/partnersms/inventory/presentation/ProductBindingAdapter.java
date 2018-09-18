@@ -13,11 +13,12 @@ public class ProductBindingAdapter {
 
     @BindingAdapter("components")
     public static void setComponents(LinearLayout layout, List<String> components) {
-        for (String component : components) {
-            EditText et = new EditText(layout.getContext());
-            et.setText(component);
-            layout.addView(et);
+        if(components != null && components.size() != 0) {
+            for (String component : components) {
+                EditText et = new EditText(layout.getContext());
+                et.setText(component);
+                layout.addView(et);
+            }
         }
-
     }
 }
