@@ -18,12 +18,12 @@ public class DeleteProductUseCase implements CompletableUseCase<Boardgame> {
     private ProductRepository mRepository;
 
     @Inject
-    public DeleteProductUseCase(ProductRepository repository) {
+    DeleteProductUseCase(ProductRepository repository) {
         mRepository = repository;
     }
 
     @Override
-    public Completable execute(Boardgame param) throws Exception {
+    public Completable execute(Boardgame param) {
         return mRepository.deleteProduct(param);
     }
 }

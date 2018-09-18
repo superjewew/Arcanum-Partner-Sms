@@ -9,6 +9,7 @@ import com.mahavira.partnersms.base.presentation.BaseViewModel;
 import com.mahavira.partnersms.base.entity.Boardgame;
 import com.mahavira.partnersms.inventory.domain.usecase.AddProductUseCase;
 
+import com.mahavira.partnersms.inventory.domain.usecase.DeleteProductUseCase;
 import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -26,15 +27,20 @@ public class AddProductViewModel extends BaseViewModel {
 
     private final MutableLiveData<Resource<Boolean>> mAddProductResult = new MutableLiveData<>();
 
+    private final  MutableLiveData<Resource<Boolean>> mRemoveProductResult = new MutableLiveData<>();
+
     private final SingleLiveEvent<Void> mAddProductClickedEvent = new SingleLiveEvent<>();
 
     private CompositeDisposable mDisposable = new CompositeDisposable();
 
     private AddProductUseCase mAddProductUseCase;
 
+    private DeleteProductUseCase mDeleteProductUseCase;
+
     @Inject
-    AddProductViewModel(AddProductUseCase addProductUseCase) {
+    AddProductViewModel(AddProductUseCase addProductUseCase, DeleteProductUseCase deleteProductUseCase) {
         mAddProductUseCase = addProductUseCase;
+        mDeleteProductUseCase = deleteProductUseCase;
     }
 
     @Override
@@ -50,12 +56,33 @@ public class AddProductViewModel extends BaseViewModel {
         return mAddProductClickedEvent;
     }
 
+    MutableLiveData<Resource<Boolean>> getRemoveProductResult() {
+        return mRemoveProductResult;
+    }
+
     void attemptAddProduct(Boardgame product) {
         mDisposable.add(mAddProductUseCase.execute(product)
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .doOnSubscribe(__ -> onSubscribe())
         .subscribe(this::onSuccess, this::onFailed));
+    }
+
+    void attemptDeleteProduct(final Boardgame product) {
+        mDisposable.add(mDeleteProductUseCase.execute(product)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe(__ -> onSubscribe())
+                .doFinally(this::hideLoading)
+                .subscribe(this::onDeleteSuccess, this::onDeleteFailed));
+    }
+
+    private void onDeleteFailed(final Throwable throwable) {
+        mRemoveProductResult.setValue(Resource.error(null, throwable.getLocalizedMessage(), false));
+    }
+
+    private void onDeleteSuccess() {
+        mRemoveProductResult.setValue(Resource.success(true));
     }
 
     private void onFailed(Throwable throwable) {

@@ -16,7 +16,7 @@ import java.util.List;
 
 @Parcel
 public class Boardgame extends BaseObservable {
-    String name;
+    String name = "";
     int quantity;
     List<String> components;
     String numPlayersFrom;

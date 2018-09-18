@@ -49,7 +49,7 @@ public class ProductRepoImpl implements ProductRepository {
 
     @Override
     public Completable deleteProduct(Boardgame product) {
-        return null;
+        return deleteValue(mInstance.collection(PRODUCT_COLLECTION).document(product.getName()));
     }
 
     @Override
