@@ -8,7 +8,7 @@
             android:label="Add Product" />
         <activity
             android:name=".presentation.getproducts.ProductListActivity"
-            android:label="Product List"/>
+            android:label="Product List" />
     </application>
 
 </manifest>

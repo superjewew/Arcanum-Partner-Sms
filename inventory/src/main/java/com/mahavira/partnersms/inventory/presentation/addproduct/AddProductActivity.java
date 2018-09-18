@@ -1,6 +1,7 @@
 package com.mahavira.partnersms.inventory.presentation.addproduct;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.mahavira.partnersms.base.presentation.BaseActivity;
+import com.mahavira.partnersms.base.presentation.ExtraInjectable;
 import com.mahavira.partnersms.inventory.BR;
 import com.mahavira.partnersms.inventory.R;
 import com.mahavira.partnersms.inventory.databinding.ActivityAddProductBinding;
@@ -16,8 +18,12 @@ import com.mahavira.partnersms.base.entity.Boardgame;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.parceler.Parcels;
 
-public class AddProductActivity extends BaseActivity<ActivityAddProductBinding, AddProductViewModel> {
+public class AddProductActivity extends BaseActivity<ActivityAddProductBinding, AddProductViewModel> implements
+        ExtraInjectable {
+
+    public static final String PRODUCT_EXTRA = "product";
 
     Boardgame mProduct = new Boardgame();
 
@@ -52,6 +58,13 @@ public class AddProductActivity extends BaseActivity<ActivityAddProductBinding, 
         getViewModel().getAddProductClickedEvent().observe(this, __ -> addNewField());
 
         getDataBinding().setProduct(mProduct);
+    }
+
+    @Override
+    public void injectExtras(@NonNull final Bundle extras) {
+        if(extras.containsKey(PRODUCT_EXTRA)) {
+            mProduct = Parcels.unwrap(extras.getParcelable(PRODUCT_EXTRA));
+        }
     }
 
     @Override
